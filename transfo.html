@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Transformacja anamorficzna</title>
+	<meta charset="utf-8">
+	<style>
+	.hide {display: none;}
+	</style>
+	<script src="/var/cartovariables.js"></script>
+</head>
+<body>
+<script src="http://d3js.org/d3.v4.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/d3-geo.v1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/kute.js/1.6.2/kute.min.js"></script>
+<script src="https://cdn.jsdelivr.net/kute.js/1.6.2/kute-svg.min.js"></script>
+<script>
+	
+	/*
+	Skrypt transformuje granice Polski pomiedzy roznymi stadiami rozmycia Gaussa macierzy populacji w metodzie kartogramu anamorficznego Gastnera-Newmana.
+	Kartogram zostal przeliczony w zewnetrznym programie, na strone ladowane sa pliki GeoJSON, zamieniane w sciezki SVG i przeksztalcane miedzy soba.
+	*/
+
+	var w = 900;
+	var h = 900;
+	
+	var svg = d3.select("body")
+		.append("svg")
+		.attr("width", w)
+		.attr("height", h)
+		.attr("id", "SVG");
+
+	var g = svg.append("g")
+		.attr("id", "container");
+
+	var mercator = d3.geoMercator()
+		.fitSize([w-100, h-100], init);
+
+			var geoPathInit = d3.geoPath().projection(mercator);
+			g.append("g")
+			.attr("id", "0")
+    		.selectAll("path")
+    		.data(init.features)
+    		.enter()
+    		.append("path")
+    		.attr("id", function(d) {return d.properties.wojewodztw + 0;})
+    		.attr("d", geoPathInit)
+			.style({
+				fill: "#ccc",
+				stroke: "black"
+			});
+			
+			//w celu unikniecia asynchroniczonosci funkcji d3.json i zaprogramowania petli, wczytywanie plikow GeoJSON nastepuje przez zmienne z pliku cartovaribles.js
+			var varList = [c500,c250,c200,c150,c100,c90,c80,c70,c60,c50,c40,c30,c20,c15,c10,c5,c1];
+
+			for (var i=1; i<varList.length;i++) {
+				item = varList[i];
+				var geoPath = d3.geoPath().projection(mercator);
+				g.append("g")
+					.attr("id", i)
+					.attr("class", "hide")
+					.selectAll("path")
+					.data(item.features)
+					.enter()
+					.append("path")
+					.attr("id", function(d) {return d.properties.wojewodztw + i;})
+					.attr("d", geoPath)
+					.style({
+				fill: "#ccc",
+				stroke: "black"});
+			};
+
+			//funkcja clone pochdzi z narzedzia do szukania najlepszego obrotu sciezek transformowanych biblioteki KUTE.js: http://codepen.io/thednp/pen/YGayLg
+			clone = function(a) {
+      			var copy;
+      			if (a instanceof Array) {
+        			copy = [];
+        			for (var i = 0, len = a.length; i < len; i++) {
+          				copy[i] = clone(a[i]);
+        			}
+        			return copy;
+      			}
+      			return a;
+    		};
+
+    		pathParser = function(ID) {
+    			if(document.getElementById(ID)) {
+    				var str = document.getElementById(ID).getAttribute("d");
+    				var qstr = '"'+String(str)+'"';
+    				var noMZPath = qstr.replace(/[MZ]/g,'');
+    				var cleanPath = noMZPath.replace(/[L]/g,' ');
+    				var slicedPath = cleanPath.split(' ');
+    				var coordArray = []
+    				for(var r=0;r<slicedPath.length;r++) {
+    					coordArray.push(slicedPath[r].replace(/["]/g,''));
+    				};
+    				var xArray = [], yArray = [];
+    				for(var g=0;g<coordArray.length;g++) {
+    					xArray.push(coordArray[g].split(',')[0]);
+    					yArray.push(coordArray[g].split(',')[1]);
+    				};
+    				coo = [];
+    				for(var h=0;h<xArray.length;h++) {
+    					coo.push([parseFloat(xArray[h]),parseFloat(yArray[h])]);
+    				};
+    				return coo;
+    			};
+    		};
+    		
+    		//fragment funkcji bestIndex pochdzi z narzedzia do szukania najlepszego obrotu sciezek transformowanych biblioteki KUTE.js: http://codepen.io/thednp/pen/YGayLg
+    		bestIndex = function(IDenter,IDexit) {
+    			if(document.getElementById(IDenter) && document.getElementById(IDexit)) {
+    				enterPath = pathParser(IDenter);
+    				exitPath = pathParser(IDexit);
+    				var enterClone = clone(enterPath);
+					var exitClone = clone(exitPath);
+    				var dxy = [], dx, dy;
+    				for(var i=0;i<exitClone.length;i++) {
+    					numerator = exitClone.splice(i,exitPath.length - i);
+						exitClone = numerator.concat(exitClone);
+    					dx = Math.abs(enterClone[i][0] - exitClone[i][0]);
+    					dy = Math.abs(enterClone[i][1] - exitClone[i][1]);
+    					dxy.push(Math.sqrt(dx*dx + dy*dy));
+    					exitClone = []; exitClone = clone(exitPath); numerator = null;
+    				};
+    				return dxy.indexOf(Math.min.apply(null,dxy));
+    			};
+    		};
+    		
+    		//gotowa funkcja, ktora sprawdza sciezke wejsciowa i docelowa, znajduje najlepszy obrot i czeka na wywolanie
+    		twn = function(ID1,ID2) {
+    			if(document.getElementById(ID1) && document.getElementById(ID2)) {
+    				enID = document.getElementById(ID1);
+    				exID = document.getElementById(ID2);
+    				enPath = document.getElementById(ID1).getAttribute("d");
+    				exPath = document.getElementById(ID2).getAttribute("d");
+    				var tween = KUTE.fromTo(enID, 
+    					{path: enID},
+    					{path: exID},
+    					{
+    						morphPrecision: 1,
+    						morphIndex: bestIndex(enID,exID),
+    						easing: 'easingElasticInOut',
+    						duration: 1000
+    					});
+    				return tween;
+    			};
+    			
+    		};
+    		
+    		//prezentacja przykladowego zestawu zmiennych do transformacji
+			var t1 = twn('opolskie0','opolskie14');
+			var t2 = twn('swietokrzyskie0','swietokrzyskie14');
+			var t3 = twn('kujawsko-pomorskie0','kujawsko-pomorskie14');
+			var t4 = twn('mazowieckie0','mazowieckie14');
+			var t5 = twn('pomorskie0','pomorskie14');
+			var t6 = twn('slaskie0','slaskie14');
+			var t7 = twn('warminsko-mazurskie0','warminsko-mazurskie14');
+			var t8 = twn('zachodniopomorskie0','zachodniopomorskie14');
+			var t9 = twn('dolnoslaskie0','dolnoslaskie14');
+			var t10 = twn('wielkopolskie0','wielkopolskie14');
+			var t11 = twn('lodzkie0','lodzkie14');
+			var t12 = twn('podlaskie0','podlaskie14');
+			var t13 = twn('malopolskie0','malopolskie14');
+			var t14 = twn('lubuskie0','lubuskie14');
+			var t15 = twn('podkarpackie0','podkarpackie14');
+			var t16 = twn('lubelskie0','lubelskie14');
+
+			//wywolanie transformacji
+    		document.getElementById('container').onclick = function() {
+				!t1.playing && t1.start();
+				!t2.playing && t2.start();
+				!t3.playing && t3.start();
+				!t4.playing && t4.start();
+				!t5.playing && t5.start();
+				!t6.playing && t6.start();
+				!t7.playing && t7.start();
+				!t8.playing && t8.start();
+				!t9.playing && t9.start();
+				!t10.playing && t10.start();
+				!t11.playing && t11.start();
+				!t12.playing && t12.start();
+				!t13.playing && t13.start();
+				!t14.playing && t14.start();
+				!t15.playing && t15.start();
+				!t16.playing && t16.start();
+			};
+
+    		//docelowo powstanie funkcja, ktora sprawdza stan wyjsciowy i w zaleznosci, czy chcemy zobaczyc mniejsze, czy wieksze rozmycie populacji, transformuje wszystkie wojewodztwa do stanu (n-1) lub (n+1); zestawy funkcji twn beda tworzone w petli
+
+</script>
+</body>
+</html>
