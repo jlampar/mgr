@@ -136,15 +136,36 @@
 <div id="story">
 	<p id="paraStory">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet ullamcorper dui, vestibulum efficitur neque. Maecenas ut nibh quam. Fusce aliquam tortor a lobortis pulvinar. Sed euismod purus sed ultrices commodo. Vivamus maximus sapien id libero volutpat congue. Mauris eros augue, tempus at quam quis, suscipit posuere ipsum. Phasellus eleifend nunc a sem feugiat dignissim. Etiam viverra tristique est vitae consequat. Donec sagittis pharetra erat vel pulvinar. Suspendisse eget urna nec libero convallis finibus at at enim. Integer imperdiet malesuada arcu, ac luctus libero tincidunt at. Morbi iaculis lobortis turpis, ac auctor turpis commodo eu.</p>
 	<div id="first" class="boxFrame">
-		<svg class="icon"><use xlink:href="#polska"></use></svg>
+		<svg class="icon">
+			<switch>
+				<use xlink:href="#polska"></use>
+				<foreignObject>
+					<img class="icon" src="img/polska.png">
+				</foreignObject>
+			</switch>
+		</svg>
 		<p class="boxStory">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet ullamcorper dui, vestibulum efficitur neque. Maecenas ut nibh quam. Fusce aliquam tortor a lobortis pulvinar. Sed euismod purus sed ultrices commodo. Vivamus maximus sapien id libero volutpat congue.</p>
 	</div>
 	<div id="second" class="boxFrame">
-		<svg class="icon"><use xlink:href="#net"></use></svg>
+		<svg class="icon">
+			<switch>
+				<use xlink:href="#net"></use>
+				<foreignObject>
+					<img class="icon" src="img/net.png">
+				</foreignObject>
+			</switch>
+		</svg>
 		<p class="boxStory">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet ullamcorper dui, vestibulum efficitur neque. Maecenas ut nibh quam. Fusce aliquam tortor a lobortis pulvinar. Sed euismod purus sed ultrices commodo. Vivamus maximus sapien id libero volutpat congue.</p>
 	</div>
 	<div id="third" class="boxFrame">
-		<svg class="icon"><use xlink:href="#gaussNet"></use></svg>
+		<svg class="icon">
+			<switch>
+				<use xlink:href="#gaussNet"></use>
+				<foreignObject>
+					<img class="icon" src="img/gaussNet.png">
+				</foreignObject>
+			</switch>
+		</svg>
 		<p class="boxStory">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet ullamcorper dui, vestibulum efficitur neque. Maecenas ut nibh quam. Fusce aliquam tortor a lobortis pulvinar. Sed euismod purus sed ultrices commodo. Vivamus maximus sapien id libero volutpat congue.</p>
 	</div>
 </div>
@@ -160,9 +181,27 @@
 		<div id="mapDiv">
 			<div id="basket"></div>
 			<div id="buttonWrapper">
-				<div id="PBt"><svg class="Pbutton"><use xlink:href="#pArrow" /></svg></div>
+				<div id="PBt">
+					<svg class="Pbutton">
+						<switch>
+							<use xlink:href="#pArrow"></use>
+							<foreignObject>
+								<img class="Pbutton" src="img/pArrow.png">
+							</foreignObject>
+						</switch>
+					</svg>
+				</div>
 				<div id="display"></div>
-				<div id="NBt"><svg class="Nbutton"><use xlink:href="#nArrow" /></svg></div>
+				<div id="NBt">
+					<svg class="Nbutton">
+						<switch>
+							<use xlink:href="#nArrow"></use>
+							<foreignObject>
+								<img class="Nbutton" src="img/nArrow.png">
+							</foreignObject>
+						</switch>
+					</svg>
+				</div>
 			</div>
 		</div>
 	</div>
