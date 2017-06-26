@@ -207,7 +207,7 @@ footer {
 #basket {
 	width: 18em;
 	height: 40vw;
-	margin-top: 5vh;
+	margin-top: 15vh;
 	display: inline-block;
 }
 
@@ -354,6 +354,7 @@ footer {
 	#basket {
 		height: 70vh;
 		width: 70vh;
+		margin-top: 5vh;
 	}
 
 }
