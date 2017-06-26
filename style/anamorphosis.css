@@ -7,7 +7,7 @@ html, body {
 
 @font-face {
 	font-family: "Colchester";
-	src: url(/font/colchester.black.ttf) format("truetype");
+	src: url(font/colchester.black.ttf) format("truetype");
 }
 
 h1 {
@@ -56,7 +56,7 @@ footer {
 }
 
 #jumbotron {
-	background: url(/img/holbein_ambassadors_pxnet.jpg) no-repeat center top; /* fragment from 'The Ambassadors' (1533) by Hans Holbein the Younger styled inCorel PHOTO-PAINT X4 */
+	background: url(img/holbein_ambassadors_pxnet.jpg) no-repeat center top; /* fragment from 'The Ambassadors' (1533) by Hans Holbein the Younger styled inCorel PHOTO-PAINT X4 */
 	background-size: cover;
 	background-attachment: fixed;
 	height: 100vh;
@@ -165,7 +165,7 @@ footer {
 }
 
 #passtron {
-	background: url(/img/cloth.jpg) no-repeat center center; /* fragment from 'The Ambassadors' (1533) by Hans Holbein the Younger styled in CorelPHOTO-PAINT X4 */
+	background: url(img/cloth.jpg) no-repeat center center; /* fragment from 'The Ambassadors' (1533) by Hans Holbein the Younger styled in CorelPHOTO-PAINT X4 */
 	background-size: cover;
 	background-attachment: fixed;
 	width: 100%;
