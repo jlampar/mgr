@@ -354,7 +354,6 @@ footer {
 	#basket {
 		height: 70vh;
 		width: 70vh;
-		margin-top: 5vh;
 	}
 
 }
@@ -457,6 +456,7 @@ footer {
 	#basket {
 		width: 80vh;
 		height: 80vh;
+		margin-top: 5vh;
 	}
 
 	.Nbutton {
