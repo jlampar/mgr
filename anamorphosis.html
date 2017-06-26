@@ -5,7 +5,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<script src="https://gist.githubusercontent.com/leonderijke/c5cf7c5b2e424c0061d2/raw/10aa15914fad3cfd77bb277c185cf61eb954a886/svgfixer.js"></script>
-	<script type="text/javascript" src="https://cdn.rawgit.com/jlampar/mgr/master/geo_data.js"></script>
 	<link rel="stylesheet" type="text/css" href="style/anamorphosis.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="jQuery/JQ.js"></script>
@@ -137,36 +136,15 @@
 <div id="story">
 	<p id="paraStory">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet ullamcorper dui, vestibulum efficitur neque. Maecenas ut nibh quam. Fusce aliquam tortor a lobortis pulvinar. Sed euismod purus sed ultrices commodo. Vivamus maximus sapien id libero volutpat congue. Mauris eros augue, tempus at quam quis, suscipit posuere ipsum. Phasellus eleifend nunc a sem feugiat dignissim. Etiam viverra tristique est vitae consequat. Donec sagittis pharetra erat vel pulvinar. Suspendisse eget urna nec libero convallis finibus at at enim. Integer imperdiet malesuada arcu, ac luctus libero tincidunt at. Morbi iaculis lobortis turpis, ac auctor turpis commodo eu.</p>
 	<div id="first" class="boxFrame">
-		<svg class="icon">
-			<switch>
-				<use xlink:href="#polska"></use>
-				<foreignObject>
-					<img class="icon" src="style/img/polska.png">
-				</foreignObject>
-			</switch>
-		</svg>
+		<svg class="icon"><use xlink:href="#polska"/></svg>
 		<p class="boxStory">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet ullamcorper dui, vestibulum efficitur neque. Maecenas ut nibh quam. Fusce aliquam tortor a lobortis pulvinar. Sed euismod purus sed ultrices commodo. Vivamus maximus sapien id libero volutpat congue.</p>
 	</div>
 	<div id="second" class="boxFrame">
-		<svg class="icon">
-			<switch>
-				<use xlink:href="#net"></use>
-				<foreignObject>
-					<img class="icon" src="style/img/net.png">
-				</foreignObject>
-			</switch>
-		</svg>
+		<svg class="icon"><use xlink:href="#net"/></svg>
 		<p class="boxStory">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet ullamcorper dui, vestibulum efficitur neque. Maecenas ut nibh quam. Fusce aliquam tortor a lobortis pulvinar. Sed euismod purus sed ultrices commodo. Vivamus maximus sapien id libero volutpat congue.</p>
 	</div>
 	<div id="third" class="boxFrame">
-		<svg class="icon">
-			<switch>
-				<use xlink:href="#gaussNet"></use>
-				<foreignObject>
-					<img class="icon" src="style/img/gauss.png">
-				</foreignObject>
-			</switch>
-		</svg>
+		<svg class="icon"><use xlink:href="#gaussNet"/></svg>
 		<p class="boxStory">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet ullamcorper dui, vestibulum efficitur neque. Maecenas ut nibh quam. Fusce aliquam tortor a lobortis pulvinar. Sed euismod purus sed ultrices commodo. Vivamus maximus sapien id libero volutpat congue.</p>
 	</div>
 </div>
@@ -211,6 +189,7 @@
 	<p id="footerText">Created by Jakub Lamparski</p>
 	<address><a href="mailto:lamparskijakub@gmail.com">e-mail</a></address>
 </footer>
+<script type="text/javascript" src="https://cdn.rawgit.com/jlampar/mgr/master/geo_data.js"></script>
 <script>
 	
 	/* borders transformation with Gastner-Newman diffusion-based cartogram method; Cartogram computed in ArcMAP, converted from SHP to JSON*/
