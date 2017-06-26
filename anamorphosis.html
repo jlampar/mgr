@@ -209,11 +209,7 @@
 		.enter()
 		.append("path")
 		.attr("id", function(d) {return d.properties.wojewodztw + '_init';})
-		.attr("d", geoPathInitUpdated)
-		.style({
-			fill: "#dee2ed",
-			stroke: "black"
-			});
+		.attr("d", geoPathInitUpdated);
 			
 	//to get synchronous execution and load data in a loop
 	var varList = [init,c500,c250,c200,c150,c100,c90,c80,c70,c60,c50,c40,c30,c20,c15,c10,c5,c1];
