@@ -216,7 +216,9 @@ footer {
 }
 
 #init {
+	stroke: black;
 	stroke-width: 0.05em;
+	fill: #dee2ed";
 }
 
 .hide {
