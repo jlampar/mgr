@@ -107,7 +107,7 @@ footer {
 	margin-top: 5vh;
 	margin-bottom: 2vh;
 	display: inline-block;
-	opacity: 0;
+	opacity: 1;
 }
 
 .boxStory {
@@ -133,15 +133,15 @@ footer {
 }
 
 #first {
-	opacity: 0;
+	opacity: 1;
 }
 
 #second {
-	opacity: 0;
+	opacity: 1;
 }
 
 #third {
-	opacity: 0;
+	opacity: 1;
 }
 
 .icon {
