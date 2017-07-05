@@ -102,12 +102,12 @@ var h = document.getElementById("basket").offsetHeight;
 			var dat = topojson.feature(topology[i], Object.values(topology[i].objects)[0]);
 			if(i === 0) {
 				g.append("g")
-					.attr("id", "init")
+					.attr("id", i)
 					.selectAll("path")
 					.data(dat.features)
 					.enter()
 					.append("path")
-					.attr("id", function(d) {return d.properties.woj + "_init";})
+					.attr("id", function(d) {return d.properties.woj + String(i);})
 					.attr("d", geoPath);
 			} else {
 				g.append("g")
