@@ -215,12 +215,6 @@ footer {
 	margin: 6.25em;
 }
 
-#0 {
-	stroke: black;
-	stroke-width: 0.05em;
-	fill: #dee2ed;
-}
-
 .hide {
 	display: none;
 }
