@@ -102,12 +102,12 @@ var h = document.getElementById("basket").offsetHeight;
 			var dat = topojson.feature(topology[i], Object.values(topology[i].objects)[0]);
 			if(i === 0) {
 				g.append("g")
-					.attr("id", i)
+					.attr("id", "init")
 					.selectAll("path")
 					.data(dat.features)
 					.enter()
 					.append("path")
-					.attr("id", function(d) {return d.properties.woj + String(i);})
+					.attr("id", function(d) {return d.properties.woj + "_init";})
 					.attr("d", geoPath);
 			} else {
 				g.append("g")
@@ -202,9 +202,7 @@ var h = document.getElementById("basket").offsetHeight;
 				var dispList = [];
 				var nextList = [];
 				var dispObject = document.getElementById("0");
-				console.log("dispObject: ", dispObject);
 				var nextObject = document.getElementById(nextTarget);
-				console.log("nextObject: ", nextObject);
 				for (var num=0; num < dispObject.childNodes.length; num++) {
 					dispList.push(dispObject.childNodes[num].id);
 					nextList.push(nextObject.childNodes[num].id);
@@ -218,7 +216,6 @@ var h = document.getElementById("basket").offsetHeight;
 					varArray.push(twn(tweenArray[vnum][0],tweenArray[vnum][1]));
 					}
 				actualStatus += 1;
-				console.log("actualStatus", actualStatus);
 				document.getElementById("display").innerHTML = "<p>"+String(gaussValueList[actualStatus])+"</p>";
 				nextStart = [];
 				for(var ALO=0; ALO < varArray.length; ALO++){
@@ -252,7 +249,6 @@ var h = document.getElementById("basket").offsetHeight;
 					varrArray.push(twn(tweennArray[vnumm][0],tweennArray[vnumm][1]));
 					}
 				actualStatus -= 1;
-				console.log("actualStatus", actualStatus);
 				document.getElementById("display").innerHTML = "<p>"+String(gaussValueList[actualStatus])+"</p>";
 				prevStart = [];
 				for(var ALT=0; ALT < varrArray.length; ALT++){
@@ -270,7 +266,7 @@ var h = document.getElementById("basket").offsetHeight;
 	var second = $('#second');
 	var third = $('#third');
 	$(window).on('scroll', function() {
-	if($(window).width() > 961) {
+	//if($(window).width() > 961) {
 		var st = $(this).scrollTop();
 		cnt.css({  
 			'opacity' : 1 - st/200
@@ -290,7 +286,7 @@ var h = document.getElementById("basket").offsetHeight;
 		third.css({
 			'opacity' : 0 + st/490
 			});
-		}
+		}//
 	});
 	
 	$(window).on("resize", function() {
