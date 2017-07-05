@@ -112,7 +112,7 @@ var h = document.getElementById("basket").offsetHeight;
 					.style({
 						"fill": "#dee2ed",
 						"stroke": "black",
-						"stroke-width": "0.05em";
+						"stroke-width": "0.05em"
 					});
 			} else {
 				g.append("g")
