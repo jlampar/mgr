@@ -286,7 +286,7 @@ var h = document.getElementById("basket").offsetHeight;
 		third.css({
 			'opacity' : 0 + st/490
 			});
-		}//
+		//}
 	});
 	
 	$(window).on("resize", function() {
