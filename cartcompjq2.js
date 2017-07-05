@@ -109,11 +109,9 @@ var h = document.getElementById("basket").offsetHeight;
 					.append("path")
 					.attr("id", function(d) {return d.properties.woj + String(i);})
 					.attr("d", geoPath)
-					.style({
-						"fill": "#dee2ed",
-						"stroke": "black",
-						"stroke-width": "0.05em"
-					});
+					.style("fill", "#dee2ed")
+					.style("stroke", "black")
+					.style("stroke-width", "0.05em");
 			} else {
 				g.append("g")
 					.attr("id", i)
