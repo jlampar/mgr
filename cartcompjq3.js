@@ -131,16 +131,16 @@ $(document).ready(function(){
 	
 	var actualStatus = [0,0,0,0];
 
-	document.getElementById('nBase').onclick = pathBetweening(actualStatus,"0000",2,0,true);
-	document.getElementById('pBase').onclick = pathBetweening(actualStatus,"0000",2,0,false);
-	document.getElementById('nGene').onclick = pathBetweening(actualStatus,"0000",3,1,true);
-	document.getElementById('pGene').onclick = pathBetweening(actualStatus,"0000",3,1,false);
-	document.getElementById('nNet').onclick = pathBetweening(actualStatus,"0000",1,2,true);
-	document.getElementById('pNet').onclick = pathBetweening(actualStatus,"0000",1,2,false);
-	document.getElementById('nGauss').onclick = pathBetweening(actualStatus,"0000",9,3,true);
-	document.getElementById('pGauss').onclick = pathBetweening(actualStatus,"0000",9,3,false);
+	document.getElementById('nBase').onclick = pathBetweening(actualStatus,2,0,true);
+	document.getElementById('pBase').onclick = pathBetweening(actualStatus,2,0,false);
+	document.getElementById('nGene').onclick = pathBetweening(actualStatus,3,1,true);
+	document.getElementById('pGene').onclick = pathBetweening(actualStatus,3,1,false);
+	document.getElementById('nNet').onclick = pathBetweening(actualStatus,1,2,true);
+	document.getElementById('pNet').onclick = pathBetweening(actualStatus,1,2,false);
+	document.getElementById('nGauss').onclick = pathBetweening(actualStatus,9,3,true);
+	document.getElementById('pGauss').onclick = pathBetweening(actualStatus,9,3,false);
 
-	pathBetweening = function(presentState,"0000",endSwith,row,forward,error) {
+	pathBetweening = function(presentState,endSwith,row,forward,error) {
 		if (error) throw error;
 		if(presentState[row] > 0 && presentState[row] < endSwith) {
 			var endID = "";
