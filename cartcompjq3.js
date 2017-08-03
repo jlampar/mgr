@@ -253,6 +253,7 @@ $(document).ready(function(){
 	
 	function pathBetweening(presentState,endSwith,row,forward) {
 		"use strict";
+		console.log(presentState,endSwith,row,forward);
 		if(presentState[row] > 0 && presentState[row] < endSwith) {
 			var endID = "";
 			if(forward) {
@@ -284,7 +285,7 @@ $(document).ready(function(){
 				return presentState, startArray;
 			}
 		}
-	};
+	}
 
 
 	
