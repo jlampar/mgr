@@ -189,7 +189,11 @@ $(document).ready(function(){
 			}
 		});
 
-	//clone function taken from SVG Path Morph Utility for KUTE.js
+	
+		
+});
+
+//clone function taken from SVG Path Morph Utility for KUTE.js
 	clone = function(a) {
 				var copy;
 				if (a instanceof Array) {
@@ -286,5 +290,4 @@ $(document).ready(function(){
 			}
 		}
 	};
-		
-});
+
