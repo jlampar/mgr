@@ -78,7 +78,7 @@ $(document).ready(function(){
 	
 	var queue = d3.queue();
 	fileList.forEach(function(file) {
-		url = "./jsonfile/cJSON/c" + file + ".min.topojson";
+		url = "https://rawgit.com/jlampar/mgr/master/jsonfile/cJSON/c" + file + ".min.topojson";
 		queue.defer(d3.json, url);
 	});
 
