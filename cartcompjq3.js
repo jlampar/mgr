@@ -152,13 +152,12 @@ $(document).ready(function(){
     	} else if (target.is('div#pGauss') && actualStatus[3] > 0) {
     	   return actualStatus[3] = actualStatus[3] - 1;
     	}
-
-    	var code = actualStatus.join("");
-    	if (document.getElementById("0000") && document.getElementById(code)) {
+		
+    	if (document.getElementById("0000") && document.getElementById(actualStatus.join(""))) {
 				var disppList = [];
 				var nextList = [];
 				var disppObject = document.getElementById("0000");
-				var nextObject = document.getElementById(code);
+				var nextObject = document.getElementById(actualStatus.join(""));
 				for (var numm=0; numm < disppObject.childNodes.length; numm++) {
 					disppList.push(disppObject.childNodes[numm].id);
 					nextList.push(nextObject.childNodes[numm].id);
@@ -167,7 +166,7 @@ $(document).ready(function(){
 				for (var tnumm=0; tnumm < disppList.length; tnumm++) {
 					tweennArray.push([disppList[tnumm],nextList[tnumm]]);
 					}
-					var varrArray = [];
+				var varrArray = [];
 				for (var vnumm=0; vnumm < tweennArray.length; vnumm++) {
 					varrArray.push(twn(tweennArray[vnumm][0],tweennArray[vnumm][1]));
 					}
