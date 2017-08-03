@@ -169,11 +169,10 @@ $(document).ready(function(){
 					startArray.push(varArray[nd].start());
 				}
 				console.log('startArray: ',startArray);
-				return presentState;
-				return startArray;
+				return presentState, startArray;
 			}
 		}
-	}
+	};
 	
 	var cnt = $('#cont');
 	var head = $('#header');
