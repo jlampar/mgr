@@ -1,4 +1,3 @@
-"use strict";
 //SVG fixer from: https://gist.github.com/leonderijke/c5cf7c5b2e424c0061d2#file-svgfixer-js
 /**
  * SVG Fixer
@@ -130,14 +129,14 @@ $(document).ready(function(){
 	
 	var actualStatus = [0,0,0,0];
 
-	document.getElementById('nBase').onclick = function() { pathBetweening(actualStatus,2,0,true); };
-	document.getElementById('pBase').onclick = function() {  pathBetweening(actualStatus,2,0,false); };
-	document.getElementById('nGene').onclick = function() {  pathBetweening(actualStatus,3,1,true); };
-	document.getElementById('pGene').onclick = function() {  pathBetweening(actualStatus,3,1,false); };
-	document.getElementById('nNet').onclick = function() {  pathBetweening(actualStatus,1,2,true); };
-	document.getElementById('pNet').onclick = function() {  pathBetweening(actualStatus,1,2,false); };
-	document.getElementById('nGauss').onclick = function() {  pathBetweening(actualStatus,9,3,true); };
-	document.getElementById('pGauss').onclick = function() {  pathBetweening(actualStatus,9,3,false); };
+	document.getElementById('nBase').onclick = function() {"use strict"; pathBetweening(actualStatus,2,0,true); };
+	document.getElementById('pBase').onclick = function() {"use strict";  pathBetweening(actualStatus,2,0,false); };
+	document.getElementById('nGene').onclick = function() {"use strict";  pathBetweening(actualStatus,3,1,true); };
+	document.getElementById('pGene').onclick = function() {"use strict";  pathBetweening(actualStatus,3,1,false); };
+	document.getElementById('nNet').onclick = function() {"use strict";  pathBetweening(actualStatus,1,2,true); };
+	document.getElementById('pNet').onclick = function() {"use strict";  pathBetweening(actualStatus,1,2,false); };
+	document.getElementById('nGauss').onclick = function() {"use strict";  pathBetweening(actualStatus,9,3,true); };
+	document.getElementById('pGauss').onclick = function() {"use strict";  pathBetweening(actualStatus,9,3,false); };
 	
 	var cnt = $('#cont');
 	var head = $('#header');
@@ -253,6 +252,7 @@ $(document).ready(function(){
 		};
 	
 	pathBetweening = function(presentState,endSwith,row,forward) {
+		"use strict";
 		if(presentState[row] > 0 && presentState[row] < endSwith) {
 			var endID = "";
 			if(forward) {
