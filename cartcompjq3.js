@@ -98,37 +98,35 @@ $(document).ready(function(){
 			.scale(s)
 			.translate(t);
 
-		for(i = 0; i < topology.length; i++) {
+		for(var pth = 0; pth < topology.length; pth++) {
 			var geoPath = d3.geoPath().projection(mercator);
-			var dat = topojson.feature(topology[i], Object.values(topology[i].objects)[0]);
-			if(i === 0) {
+			var dat = topojson.feature(topology[pth], Object.values(topology[pth].objects)[0]);
+			if(pth === 0) {
 				g.append("g")
-					.attr("id", fileList[i])
+					.attr("id", fileList[pth])
 					.selectAll("path")
 					.data(dat.features)
 					.enter()
 					.append("path")
-					.attr("id", function(d) {return d.properties.woj + fileList[i];})
+					.attr("id", function(d) {return d.properties.woj + fileList[pth];})
 					.attr("d", geoPath)
 					.style("fill", "#dee2ed")
 					.style("stroke", "black")
 					.style("stroke-width", "0.05em");
 			} else {
 				g.append("g")
-					.attr("id", fileList[i])
+					.attr("id", fileList[pth])
 					.attr("class", "hide")
 					.selectAll("path")
 					.data(dat.features)
 					.enter()
 					.append("path")
-					.attr("id", function(d) {return d.properties.woj + fileList[i];})
+					.attr("id", function(d) {return d.properties.woj + fileList[pth];})
 					.attr("d", geoPath);
 			}
 			
 			}
 		});
-
-	i = 0;
 	
 	var actualStatus = [0,0,0,0];
 
