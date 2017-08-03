@@ -134,8 +134,6 @@ $(document).ready(function(){
  	$('body').click(function(e, error) {
  		if(error) throw error;
     	var target = $(e.target);
-    	var code = actualStatus.join("");
-    	console.log(code);
 
     	if(target.is('div#nBase') && actualStatus[0] < 2) {
     	   return actualStatus[0] = actualStatus[0] + 1;
@@ -155,12 +153,12 @@ $(document).ready(function(){
     	   return actualStatus[3] = actualStatus[3] - 1;
     	}
 
-    	var nextTarget = code;
-    	if (document.getElementById("0000") && document.getElementById(nextTarget)) {
+    	var code = actualStatus.join("");
+    	if (document.getElementById("0000") && document.getElementById(code)) {
 				var disppList = [];
 				var nextList = [];
 				var disppObject = document.getElementById("0000");
-				var nextObject = document.getElementById(nextTarget);
+				var nextObject = document.getElementById(code);
 				for (var numm=0; numm < disppObject.childNodes.length; numm++) {
 					disppList.push(disppObject.childNodes[numm].id);
 					nextList.push(nextObject.childNodes[numm].id);
