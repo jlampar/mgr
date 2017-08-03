@@ -1,0 +1,496 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	min-height: 100% !important;
+	height: 100%;
+}
+
+@font-face {
+	font-family: "Colchester";
+	src: url(font/colchester.black.ttf) format("truetype");
+}
+
+h1 {
+	color: #dee2ed;
+	text-shadow: -0.0625em 0 #352f1d, 0 0.0625em #352f1d, 0.0625em 0 #352f1d, 0 -0.0625em #352f1d;
+	font-family: "Colchester";
+	font-weight: normal;
+	font-size: 0;
+	display: inline-block;
+	text-transform: uppercase;
+}
+
+h2 {
+	color: #dee2ed;
+	text-shadow: -0.0625em 0 #352f1d, 0 0.0625em #352f1d, 0.0625em 0 #352f1d, 0 -0.0625em #352f1d;
+	font-family: "Arial";
+	font-weight: normal;
+	font-style: oblique;
+	font-size: 1.5em;
+	margin-right: 0.5em;
+	margin-left: 0.5em;
+}
+
+p {
+	color: #352f1d;
+	font-family: "Arial";
+	font-weight: normal;
+	font-size: 0.95em;
+}
+
+address {
+	font-family: "Arial";
+	font-size: 0.6em;
+	margin-top: 0;
+	margin-bottom: 0;
+	display: inline-block;
+}
+
+a {
+	color: snow;
+	text-decoration: none;
+}
+
+footer {
+	background-color: #564F60;
+}
+
+#jumbotron {
+	background: url(img/holbein_ambassadors_pxnet.jpg) no-repeat center top; /* fragment from 'The Ambassadors' (1533) by Hans Holbein the Younger styled inCorel PHOTO-PAINT X4 */
+	background-size: cover;
+	background-attachment: fixed;
+	height: 100vh;
+	text-align: center;
+}
+
+#cont {
+	margin: 18vh auto;
+	padding: 0.3125em 0.625em;
+	border: solid 0.1875em #dee2ed;
+	text-align: center;
+	display: inline-block;
+	opacity: 1;
+}
+
+#header {
+	padding: 0 5vh;
+	opacity: 1;
+}
+
+#breakline {
+	display: block;
+}
+
+.br {
+	display: block;
+	font-size: 7vh;
+}
+
+#story {
+	color: #1C071C;
+	font-family: "Arial";
+	font-weight: normal;
+	font-size: 0.95em;
+	background-size: cover;
+	background-color: #84886F;
+	height: auto;
+	text-align: center;
+	display: inline-block;
+	box-shadow: 0em 0.4375em 0.4375em 0em rgba(0,0,0,0.8), 0em -0.4375em 0.4375em 0em rgba(0,0,0,0.8);
+}
+
+#paraStory {
+	background-color: #C4C9AE;
+	padding: 2%;
+	margin-left: 10vw;
+	margin-right: 10vw;
+	margin-top: 5vh;
+	margin-bottom: 2vh;
+	display: inline-block;
+	opacity: 1;
+}
+
+.boxStory {
+	padding: 4vw;
+	width: auto;
+	height: auto;
+	margin: auto;
+	margin-top: 2vh;
+	margin-bottom: 2vh;
+}
+
+.boxFrame {
+	background-color: #C4C9AE;
+	text-align: center;
+	display: block;
+	padding: 1%;
+	padding-top: 10%;
+	margin: auto;
+	margin-top: 2vh;
+	margin-bottom: 5vh;
+	width: 50vw;
+	display: block;
+}
+
+#first {
+	opacity: 1;
+}
+
+#second {
+	opacity: 1;
+}
+
+#third {
+	opacity: 1;
+}
+
+.icon {
+	width: 4.375em;
+	height: 4.0625em;
+	fill: none;
+	stroke: #1C071C;
+	stroke-width: 0.125em;
+}
+
+.over {
+	width: 4.375em;
+	height: 4.0625em;
+	fill: none;
+	stroke: #837C8D;
+	stroke-width: 0.125em;
+	-webkit-filter: drop-shadow(0px 0.0625em 0.0625em #1C071C); 
+	filter: drop-shadow(0px 0.0625em 0.0625em black);
+	-webkit-transform: translateY(-0.0625em);
+	transform: translateY(-0.0625em);
+}
+
+#passtron {
+	background: url(img/cloth.jpg) no-repeat center center; /* fragment from 'The Ambassadors' (1533) by Hans Holbein the Younger styled in CorelPHOTO-PAINT X4 */
+	background-size: cover;
+	background-attachment: fixed;
+	width: 100%;
+	text-align: center;
+	display: inline-block;
+}
+
+#mapWrapper {
+	background-size: cover;
+	background-color: #84886F;
+	overflow: auto;
+	width: 100%;
+	height: 100vh;
+	text-align: center;
+	display: block;
+	box-shadow: 0em -0.4375em 0.4375em 0em rgba(0,0,0,0.8);
+}
+
+#flexContainer {
+	text-align: center;
+	margin: 0 auto;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+#sideDiv {
+	display: none;
+}
+
+#mapDiv {
+	margin-top: 5vh;
+	display: inline-block;
+  text-align: center;
+}
+
+#basket {
+	width: 18em;
+	height: 40vw;
+	margin: 1.125em;
+	display: inline-block;
+}
+
+#container {
+	margin: 6.25em;
+}
+
+.hide {
+	display: none;
+}
+
+#buttonWrapper {
+	text-align: center;
+	margin: 0 auto;
+	/*display: -webkit-flex;
+	display: flex;*/
+  	display: block;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+#basketWrapper {
+	text-align: center;
+	margin: 0 auto;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+#nBase, #nGene, #nNet, #nGauss, #pBase, #pGene, #pNet, #pGauss {
+	color: #564F60;
+	display: inline-block;
+  	height: 72px;
+  	width: 72px;
+  	background-color: #ccc;
+}
+
+#nBase:active, #nGene:active, #nNet:active, #nGauss:active, #pBase:active, #pGene:active, #pNet:active, #pGauss:active {
+	color: #837C8D;
+	display: inline-block;
+}
+
+.button {
+	stroke: #837C8D;
+	fill: currentColor;
+	stroke-width: 0.125em;
+	width: 4.5em;
+	height: 4.5em;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer; 
+	cursor: hand;
+}
+
+#display {
+	border-radius: 20%;
+	background-color: #dee2ed;
+	border: solid 0.25em #837C8D;
+	height: auto;
+	width: 3.25em;
+	margin-right: 0.875em;
+	margin-left: 0.875em;
+	margin-top: auto;
+	margin-bottom: auto;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#footerText {
+	color: snow;
+	font-family: "Arial";
+	font-size: 0.6em;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-right: 1em;
+	margin-left: 1em;
+	display: inline-block;
+}
+
+/* 481px breakline */
+@media only screen and (min-width:30.0625em) {
+
+	#cont {
+		margin: 10vh auto;
+	}
+	.br {
+		font-size: 9vh;
+	}
+	.boxFrame {
+		padding-top: 7%;
+	}
+
+}
+
+/* 641px breakline */
+@media only screen and (min-width: 40.0625em) {
+	
+	#cont {
+		margin: 30vh auto;
+	}
+
+	.br {
+		display: inline;
+		font-size: 6vw;
+	}
+
+	#paraStory {
+		padding: 1.5%;
+	}
+
+	.boxFrame {
+		width: 25vw;
+		margin: 1vw;
+		margin-bottom: 5vh;
+		padding-top: 3%;
+		display: inline-block;
+	}
+
+	.boxStory {
+		padding: 1vw;
+	}
+
+	#basket {
+		height: 70vh;
+		width: 70vh;
+		margin-top: 5vh;
+	}
+
+}
+
+/* 961px breakline */
+@media only screen and (min-width: 60.0625em) {
+
+	.br {
+		display: inline;
+		font-size: 5.2vw;
+	}
+
+	#paraStory {
+		padding: 1%;
+	}
+
+	#mapDiv {
+		margin-top: 0;
+	}
+
+	#basket {
+		height: 70vh;
+		width: 70vh;
+		margin-top: 0vh;
+	}
+
+	#sideDiv {
+		margin-top: 7vh;
+		width: 50%;
+		height: 80%;
+		text-align: center;
+		display: inline-block;
+	}
+
+	#sideStory {
+		background-color: #C4C9AE;
+		font-family: "Arial";
+		font-weight: normal;
+		font-size: 0.95em;
+		height: auto;
+		width: auto;
+		padding: 3vw;
+		margin-right: 15vh;
+		margin-left: 5vh;
+		margin-top: 2vh;
+		margin-bottom: 2vh;
+	}
+
+}
+
+/* 4K breakline */
+@media only screen and (min-width: 160em) {
+	
+	h1 {
+		text-shadow: -0.08125em 0 #352f1d, 0 0.08125em #352f1d, 0.08125em 0 #352f1d, 0 -0.08125em #352f1d;
+	}
+
+	h2 {
+		color: #dee2ed;
+		text-shadow: -0.08125em 0 #352f1d, 0 0.08125em #352f1d, 0.08125em 0 #352f1d, 0 -0.08125em #352f1d;
+		font-family: "Arial";
+		font-weight: normal;
+		font-style: oblique;
+		font-size: 1.95em;
+		margin-right: 0.65em;
+		margin-left: 0.65em;
+	}
+
+	p {
+		font-size: 1.3em;
+	}
+
+	address {
+		font-family: "Arial";
+		font-size: 1.3em;
+		margin-top: 0;
+		margin-bottom: 0;
+		display: inline-block;
+	}
+
+	#story {
+		font-size: 1.3em;
+	}
+
+	.icon {
+		width: 5.6875em;
+		height: 5.28125em;
+		stroke-width: 0.1em;
+	}
+
+	.over {
+		width: 5.6875em;
+		height: 5.28125em;
+		stroke-width: 0.125em;
+		-webkit-filter: drop-shadow(0em 0.08125em 0.08125em #ccc); 
+		filter: drop-shadow(0em 0.08125em 0.08125em black);
+		-webkit-transform: translateY(-0.08125em);
+		transform: translateY(-0.08125em);
+	}
+
+	#basket {
+		width: 80vh;
+		height: 80vh;
+		margin-top: 3vh;
+	}
+
+	.Nbutton {
+		stroke-width: 0.1625em;
+		width: 5.85em;
+		height: 5.85em;
+		margin-left: 1.4625em;
+	}
+
+	.Pbutton {
+		stroke-width: 0.1625em;
+		width: 5.85em;
+		height: 5.85em;
+		margin-right: 1.4625em;
+	}
+
+	#display {
+		border: solid 0.325em #ccc;
+		height: auto;
+		width: 4.225em;
+		margin-right: 1.1375em;
+		margin-left: 1.1375em;
+	}
+
+	#sideStory {
+		font-size: 1.6em;
+		height: auto;
+		width: auto;
+		padding: 3vw;
+		margin-right: 19.5vh;
+		margin-left: 6.5vh;
+		margin-top: 2.6vh;
+		margin-bottom: 2.6vh;
+	}
+
+	#sideDiv {
+		margin-top: 4vh;
+	}
+
+	#footerText {
+		font-size: 1.3em;
+		margin-top: 0;
+		margin-bottom: 0;
+		margin-right: 1.3em;
+		margin-left: 1.3em;
+		display: inline-block;
+	}
+
+}
