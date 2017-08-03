@@ -1,3 +1,4 @@
+"use strict";
 //SVG fixer from: https://gist.github.com/leonderijke/c5cf7c5b2e424c0061d2#file-svgfixer-js
 /**
  * SVG Fixer
