@@ -130,53 +130,45 @@ $(document).ready(function(){
 	i = 0;
 	
 	var actualStatus = [0,0,0,0];
-  
- 	$('body').click(function(e, error) {
- 		if(error) throw error;
-    	var target = $(e.target);
 
-    	if(target.is('div#nBase') && actualStatus[0] < 2) {
-    	   return actualStatus[0] = actualStatus[0] + 1;
-    	} else if (target.is('div#pBase') && actualStatus[0] > 0) {
-    	   return actualStatus[0] = actualStatus[0] - 1;
-    	} else if (target.is('div#nGene')  && actualStatus[1] < 3) {
-    	   return actualStatus[1] = actualStatus[1] + 1;
-    	} else if (target.is('div#pGene')  && actualStatus[1] > 0) {
-    	   return actualStatus[1] = actualStatus[1] - 1;
-    	} else if (target.is('div#nNet')  && actualStatus[2] < 1) {
-    	   return actualStatus[2] = actualStatus[2] + 1;
-    	} else if (target.is('div#pNet')  && actualStatus[2] > 0) {
-    	   return actualStatus[2] = actualStatus[2] -1;
-    	} else if (target.is('div#nGauss') && actualStatus[3] < 9) {
-    	   return actualStatus[3] = actualStatus[3] + 1;
-    	} else if (target.is('div#pGauss') && actualStatus[3] > 0) {
-    	   return actualStatus[3] = actualStatus[3] - 1;
-    	}
-		
-    	if (document.getElementById("0000") && document.getElementById(actualStatus.join(""))) {
-				var disppList = [];
-				var nextList = [];
-				var disppObject = document.getElementById("0000");
-				var nextObject = document.getElementById(actualStatus.join(""));
-				for (var numm=0; numm < disppObject.childNodes.length; numm++) {
-					disppList.push(disppObject.childNodes[numm].id);
-					nextList.push(nextObject.childNodes[numm].id);
-					}
-				var tweennArray = [];
-				for (var tnumm=0; tnumm < disppList.length; tnumm++) {
-					tweennArray.push([disppList[tnumm],nextList[tnumm]]);
-					}
-				var varrArray = [];
-				for (var vnumm=0; vnumm < tweennArray.length; vnumm++) {
-					varrArray.push(twn(tweennArray[vnumm][0],tweennArray[vnumm][1]));
-					}
-				nextStart = [];
-				for(var ALT=0; ALT < varrArray.length; ALT++){
-					nextStart.push(varrArray[ALT].start());
-					}		
-				return nextStart;
+	document.getElementById('nBase').onclick = pathBetweening(actualStatus,"0000",2,0,true);
+	document.getElementById('pBase').onclick = pathBetweening(actualStatus,"0000",2,0,false);
+	document.getElementById('nGene').onclick = pathBetweening(actualStatus,"0000",3,1,true);
+	document.getElementById('pGene').onclick = pathBetweening(actualStatus,"0000",3,1,false);
+	document.getElementById('nNet').onclick = pathBetweening(actualStatus,"0000",1,2,true);
+	document.getElementById('pNet').onclick = pathBetweening(actualStatus,"0000",1,2,false);
+	document.getElementById('nGauss').onclick = pathBetweening(actualStatus,"0000",9,3,true);
+	document.getElementById('pGauss').onclick = pathBetweening(actualStatus,"0000",9,3,false);
+
+	pathBetweening = function(presentState,"0000",endSwith,row,forward,error) {
+		if (error) throw error;
+		if(presentState[row] > 0 && presentState[row] < endSwith) {
+			var endID = "";
+			if(forward) {
+				return endID = (presentState[row] + 1).join("");
+			} else {
+				return endID = (presentState[row] - 1).join("");
+			}
+			if(document.getElementById("0000") && document.getElementById(endID)) {
+				var startList = [], endList = [], tweenArray = [], varArray = [], startArray = [];
+				for(var na=0 ; na < document.getElementById("0000").childNodes.length ; na++) {
+					startList.push(document.getElementById("0000").childNodes[na].id);
+					endList.push(document.getElementById(endID).childNodes[na].id);
 				}
-  	});
+				for(var nb=0 ; nb < startList.length ; nb++) {
+					tweenArray.push([startList[nb],endList[nb]]);
+				}
+				for(var nc=0 ; nc < tweenArray.length ; nc++) {
+					varArray.push(twn(tweenArray[nc][0],tweenArray[nc][1]));
+				}
+				for(var nd=0 ; nd < varArray.length ; nd++) {
+					startArray.push(varArray[nd].start());
+				}
+				return presentState;
+				return startArray;
+			}
+		}
+	}
 	
 	var cnt = $('#cont');
 	var head = $('#header');
