@@ -251,7 +251,7 @@ $(document).ready(function(){
 			}
 		};
 	
-	pathBetweening = function(presentState,endSwith,row,forward) {
+	function pathBetweening(presentState,endSwith,row,forward) {
 		"use strict";
 		if(presentState[row] > 0 && presentState[row] < endSwith) {
 			var endID = "";
