@@ -131,14 +131,14 @@ $(document).ready(function(){
 	
 	var actualStatus = [0,0,0,0];
 
-	document.getElementById('nBase').onclick = pathBetweening(actualStatus,2,0,true);
-	document.getElementById('pBase').onclick = pathBetweening(actualStatus,2,0,false);
-	document.getElementById('nGene').onclick = pathBetweening(actualStatus,3,1,true);
-	document.getElementById('pGene').onclick = pathBetweening(actualStatus,3,1,false);
-	document.getElementById('nNet').onclick = pathBetweening(actualStatus,1,2,true);
-	document.getElementById('pNet').onclick = pathBetweening(actualStatus,1,2,false);
-	document.getElementById('nGauss').onclick = pathBetweening(actualStatus,9,3,true);
-	document.getElementById('pGauss').onclick = pathBetweening(actualStatus,9,3,false);
+	document.getElementById('nBase').onclick = function() { pathBetweening(actualStatus,2,0,true); };
+	document.getElementById('pBase').onclick = function() {  pathBetweening(actualStatus,2,0,false); };
+	document.getElementById('nGene').onclick = function() {  pathBetweening(actualStatus,3,1,true); };
+	document.getElementById('pGene').onclick = function() {  pathBetweening(actualStatus,3,1,false); };
+	document.getElementById('nNet').onclick = function() {  pathBetweening(actualStatus,1,2,true); };
+	document.getElementById('pNet').onclick = function() {  pathBetweening(actualStatus,1,2,false); };
+	document.getElementById('nGauss').onclick = function() {  pathBetweening(actualStatus,9,3,true); };
+	document.getElementById('pGauss').onclick = function() {  pathBetweening(actualStatus,9,3,false); };
 	
 	var cnt = $('#cont');
 	var head = $('#header');
