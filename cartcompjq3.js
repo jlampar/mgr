@@ -257,7 +257,8 @@ $(document).ready(function(){
 		console.log(typeof row);
 		console.log(presentState[row]);
 		if(presentState[row] > 0 && presentState[row] < endSwith) {
-			var endID = forward ? presentState.map(function(value,index) if(index == row){return value + 1} else {return value}) : presentState.forEach(function(value,index) if(index == row){return value - 1} else {return value}));
+			var endID = forward ? presentState.map((value, index) => index === row ? value + 1 : value) : presentState.map((value, index) => index === row ? value - 1 : value);
+			/*var endID = forward ? presentState.map(function(value,index) if(index == row){return value + 1} else {return value}) : presentState.forEach(function(value,index) if(index == row){return value - 1} else {return value}));*/
 			console.log('endID: ',endID);
 			if(document.getElementById("0000") && document.getElementById(endID)) {
 				var startList = [], endList = [], tweenArray = [], varArray = [], startArray = [];
