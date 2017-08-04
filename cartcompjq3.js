@@ -254,8 +254,8 @@ $(document).ready(function(){
 	function pathBetweening(presentState,endSwith,row,forward) {
 		"use strict";
 		if(presentState[row] >= 0 && presentState[row] <= endSwith) {
-			var endID = forward ? presentState.map((value, index) => index === row ? value + 1 : value) : presentState.map((value, index) => index === row ? value - 1 : value);
-			if(document.getElementById("0000") && document.getElementById(endID.join("")) {
+			var endID = forward ? presentState.map((value, index) => index === row ? value + 1 : value).join("") : presentState.map((value, index) => index === row ? value - 1 : value).join("");
+			if(document.getElementById("0000") && document.getElementById(endID) {
 				var startList = [], endList = [], tweenArray = [], varArray = [], startArray = [];
 				for(var na=0 ; na < document.getElementById("0000").childNodes.length ; na++) {
 					startList.push(document.getElementById("0000").childNodes[na].id);
