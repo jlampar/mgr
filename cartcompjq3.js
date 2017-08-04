@@ -129,14 +129,14 @@ $(document).ready(function(){
 	
 	var actualStatus = [0,0,0,0];
 
-	document.getElementById('nBase').onclick = function(){pathBetweening(actualStatus,2,0,true)};
-	document.getElementById('pBase').onclick = function(){pathBetweening(actualStatus,2,0,false)};
-	document.getElementById('nGene').onclick = function(){pathBetweening(actualStatus,3,1,true)};
-	document.getElementById('pGene').onclick = function(){pathBetweening(actualStatus,3,1,false)};
-	document.getElementById('nNet').onclick = function(){pathBetweening(actualStatus,1,2,true)};
-	document.getElementById('pNet').onclick = function(){pathBetweening(actualStatus,1,2,false)};
-	document.getElementById('nGauss').onclick = function(){pathBetweening(actualStatus,9,3,true)};
-	document.getElementById('pGauss').onclick = function(){pathBetweening(actualStatus,9,3,false)};
+	document.getElementById('nBase').onclick = function(){pathBetweening(2,0,true)};
+	document.getElementById('pBase').onclick = function(){pathBetweening(2,0,false)};
+	document.getElementById('nGene').onclick = function(){pathBetweening(3,1,true)};
+	document.getElementById('pGene').onclick = function(){pathBetweening(3,1,false)};
+	document.getElementById('nNet').onclick = function(){pathBetweening(1,2,true)};
+	document.getElementById('pNet').onclick = function(){pathBetweening(1,2,false)};
+	document.getElementById('nGauss').onclick = function(){pathBetweening(9,3,true)};
+	document.getElementById('pGauss').onclick = function(){pathBetweening(9,3,false)};
 	
 	var cnt = $('#cont');
 	var head = $('#header');
@@ -251,10 +251,10 @@ $(document).ready(function(){
 			}
 		};
 	
-	function pathBetweening(presentState,endSwith,row,forward) {
+	function pathBetweening(endSwith,row,forward) {
 		"use strict";
-		if(presentState[row] >= 0 && presentState[row] <= endSwith) {
-			var endID = forward ? presentState.map((value, index) => index === row ? value + 1 : value).join("") : presentState.map((value, index) => index === row ? value - 1 : value).join("");
+		if(actualStatus[row] >= 0 && actualStatus[row] <= endSwith) {
+			var endID = forward ? actualStatus.map((value, index) => index === row ? value + 1 : value).join("") : actualStatus.map((value, index) => index === row ? value - 1 : value).join("");
 			if(document.getElementById("0000") && document.getElementById(endID)) {
 				var startList = [], endList = [], tweenArray = [], varArray = [], startArray = [];
 				for(var na=0 ; na < document.getElementById("0000").childNodes.length ; na++) {
@@ -275,7 +275,8 @@ $(document).ready(function(){
 					startArray.push(varArray[nd].start());
 				}
 				console.log('startArray: ',startArray);
-				return presentState, startArray;
+				return actualStatus, startArray;
+				console.log(actualStatus);
 			}
 		}
 	}
