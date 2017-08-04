@@ -253,8 +253,10 @@ $(document).ready(function(){
 	function pathBetweening(endSwith,row,forward) {
 		"use strict";
 		if(actualStatus[row] >= 0 && actualStatus[row] <= endSwith) {
-			var endID = forward ? actualStatus.map((value, index) => index === row ? value + 1 : value).join("") : actualStatus.map((value, index) => index === row ? value - 1 : value).join("");
-			if(document.getElementById("0000") && document.getElementById(endID)) {
+			var endID = forward ? actualStatus.map((value, index) => index === row ? value + 1 : value) : actualStatus.map((value, index) => index === row ? value - 1 : value);
+			var endCode = endID.join("");
+			actualStatus = endID;
+			if(document.getElementById("0000") && document.getElementById(endCode)) {
 				var startList = [], endList = [], tweenArray = [], varArray = [], startArray = [];
 				for(var na=0 ; na < document.getElementById("0000").childNodes.length ; na++) {
 					startList.push(document.getElementById("0000").childNodes[na].id);
@@ -274,7 +276,7 @@ $(document).ready(function(){
 					startArray.push(varArray[nd].start());
 				}
 				console.log('startArray: ',startArray);
-				return actualStatus, startArray;
+				return startArray;
 				console.log(actualStatus);
 			}
 		}
