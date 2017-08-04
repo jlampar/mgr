@@ -260,7 +260,7 @@ $(document).ready(function(){
 				var startList = [], endList = [], tweenArray = [], varArray = [], startArray = [];
 				for(var na=0 ; na < document.getElementById("0000").childNodes.length ; na++) {
 					startList.push(document.getElementById("0000").childNodes[na].id);
-					endList.push(document.getElementById(endID).childNodes[na].id);
+					endList.push(document.getElementById(endCode).childNodes[na].id);
 				}
 				console.log('startList: ',startList);
 				console.log('endList: ',endList);
