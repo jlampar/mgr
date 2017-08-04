@@ -84,7 +84,6 @@ $(document).ready(function(){
 
 	queue.awaitAll(function(error, topology) {
 		if (error) throw error;
-		console.log(topology);
 		var initjson = topojson.feature(topology[199], Object.values(topology[199].objects)[0]);
 		mercator
 			.scale(1)
