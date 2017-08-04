@@ -256,28 +256,23 @@ $(document).ready(function(){
 			var endID = forward ? actualStatus.map((value, index) => index === row ? value + 1 : value) : actualStatus.map((value, index) => index === row ? value - 1 : value);
 			var endCode = endID.join("");
 			actualStatus = endID;
+			console.log(actualStatus);
 			if(document.getElementById("0000") && document.getElementById(endCode)) {
 				var startList = [], endList = [], tweenArray = [], varArray = [], startArray = [];
 				for(var na=0 ; na < document.getElementById("0000").childNodes.length ; na++) {
 					startList.push(document.getElementById("0000").childNodes[na].id);
 					endList.push(document.getElementById(endCode).childNodes[na].id);
 				}
-				console.log('startList: ',startList);
-				console.log('endList: ',endList);
 				for(var nb=0 ; nb < startList.length ; nb++) {
 					tweenArray.push([startList[nb],endList[nb]]);
 				}
-				console.log('tweenArray: ',tweenArray);
 				for(var nc=0 ; nc < tweenArray.length ; nc++) {
 					varArray.push(twn(tweenArray[nc][0],tweenArray[nc][1]));
 				}
-				console.log('varArray: ',varArray);
 				for(var nd=0 ; nd < varArray.length ; nd++) {
 					startArray.push(varArray[nd].start());
 				}
-				console.log('startArray: ',startArray);
 				return startArray;
-				console.log(actualStatus);
 			}
 		}
 	}
