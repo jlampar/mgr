@@ -256,7 +256,7 @@ $(document).ready(function(){
 		console.log(presentState,endSwith,row,forward);
 		console.log(typeof row);
 		console.log(presentState[row]);
-		if(presentState[row] > 0 && presentState[row] < endSwith) {
+		if(presentState[row] >= 0 && presentState[row] <= endSwith) {
 			console.log("I'm in!");
 			var endID = forward ? presentState.map((value, index) => index === row ? value + 1 : value) : presentState.map((value, index) => index === row ? value - 1 : value);
 			/*var endID = forward ? presentState.map(function(value,index) if(index == row){return value + 1} else {return value}) : presentState.forEach(function(value,index) if(index == row){return value - 1} else {return value}));*/
