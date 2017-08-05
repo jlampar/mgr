@@ -277,7 +277,7 @@ $(document).ready(function(){
 				}
 				return startArray;
 			}
-		}
+		//}
 	}
 	
 	function calculateCode(status,row,forward) {
