@@ -248,7 +248,6 @@ footer {
 	display: inline-block;
   	height: 72px;
   	width: 72px;
-  	background-color: #ccc;
 }
 
 #nBase:active, #nGene:active, #nNet:active, #nGauss:active, #pBase:active, #pGene:active, #pNet:active, #pGauss:active {
