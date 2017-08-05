@@ -262,8 +262,9 @@ $(document).ready(function(){
 			var endCode = endID.join("");
 			actualStatus = endID;
 			console.log(actualStatus);
+			console.log("0000 ---> ",actualStatus);
 		//var endCode = calculateCode(actualStatus,row,forward);
-			if(document.getElementById("0000") && document.getElementById(endCode)) {
+			/*if(document.getElementById("0000") && document.getElementById(endCode)) {
 				var startList = [], endList = [], tweenArray = [], varArray = [], startArray = [];
 				for(var na=0 ; na < document.getElementById("0000").childNodes.length ; na++) {
 					startList.push(document.getElementById("0000").childNodes[na].id);
@@ -279,7 +280,7 @@ $(document).ready(function(){
 					startArray.push(varArray[nd].start());
 				}
 				return startArray;
-			}
+			}*/
 		}
 	}
 	
