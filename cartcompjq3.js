@@ -128,14 +128,14 @@ $(document).ready(function(){
 	
 	var actualStatus = [0,0,0,0];
 
-	document.getElementById('nBase').onclick = function(){pathBetweening(3,0,true)};
-	document.getElementById('pBase').onclick = function(){pathBetweening(3,0,false)};
-	document.getElementById('nGene').onclick = function(){pathBetweening(4,1,true)};
-	document.getElementById('pGene').onclick = function(){pathBetweening(4,1,false)};
-	document.getElementById('nNet').onclick = function(){pathBetweening(2,2,true)};
-	document.getElementById('pNet').onclick = function(){pathBetweening(2,2,false)};
-	document.getElementById('nGauss').onclick = function(){pathBetweening(10,3,true)};
-	document.getElementById('pGauss').onclick = function(){pathBetweening(10,3,false)};
+	document.getElementById('nBase').onclick = function(){pathBetweening(3,0,true);};
+	document.getElementById('pBase').onclick = function(){pathBetweening(3,0,false);};
+	document.getElementById('nGene').onclick = function(){pathBetweening(4,1,true);};
+	document.getElementById('pGene').onclick = function(){pathBetweening(4,1,false);};
+	document.getElementById('nNet').onclick = function(){pathBetweening(2,2,true);};
+	document.getElementById('pNet').onclick = function(){pathBetweening(2,2,false);};
+	document.getElementById('nGauss').onclick = function(){pathBetweening(10,3,true);};
+	document.getElementById('pGauss').onclick = function(){pathBetweening(10,3,false);};
 	
 	var cnt = $('#cont');
 	var head = $('#header');
@@ -197,7 +197,7 @@ $(document).ready(function(){
 			return copy;
 		}
 		return a;
-	};
+	}
 	
 	function pathParser(ID) {
 		if(document.getElementById(ID)) {
@@ -210,7 +210,7 @@ $(document).ready(function(){
 				}
 				return coo;
 			}
-		};
+		}
 	
 	//function based on KUTE.js Path Morph Log best morph index from SVG Path Morph Utility for KUTE.js
 	function bestIndex(IDenter,IDexit) {
@@ -230,7 +230,7 @@ $(document).ready(function(){
 				}
 			return dxy.indexOf(Math.min.apply(null,dxy));
 			}
-		};
+		}
 			
 	//function checks both paths, finds the best morph index and waits for execution
 	function twn(ID1,ID2) {
@@ -248,52 +248,35 @@ $(document).ready(function(){
 					});
 				return tween;
 			}
-		};
+		}
 	
 	function pathBetweening(endSwith,row,forward) {
 		"use strict";
-		console.log(actualStatus.every((elem) => {return elem >= 0}));
-		console.log(actualStatus[0] < 2);
-		console.log(actualStatus[1] < 3);
-		console.log(actualStatus[2] < 1);
-		console.log(actualStatus[3] < 9);
-		if(actualStatus.every((elem) => {return elem >= 0}) && actualStatus[0] < 2 && actualStatus[1] < 3 && actualStatus[2] < 1 && actualStatus[4] < 9) {
-			var endID = forward ? actualStatus.map((value, index) => index === row ? value + 1 : value) : actualStatus.map((value, index) => index === row ? value - 1 : value);
-			var endCode = endID.join("");
-			actualStatus = endID;
-			console.log(actualStatus);
-			console.log("0000 ---> ",actualStatus);
-		//var endCode = calculateCode(actualStatus,row,forward);
-			/*if(document.getElementById("0000") && document.getElementById(endCode)) {
-				var startList = [], endList = [], tweenArray = [], varArray = [], startArray = [];
-				for(var na=0 ; na < document.getElementById("0000").childNodes.length ; na++) {
-					startList.push(document.getElementById("0000").childNodes[na].id);
-					endList.push(document.getElementById(endCode).childNodes[na].id);
-				}
-				for(var nb=0 ; nb < startList.length ; nb++) {
-					tweenArray.push([startList[nb],endList[nb]]);
-				}
-				for(var nc=0 ; nc < tweenArray.length ; nc++) {
-					varArray.push(twn(tweenArray[nc][0],tweenArray[nc][1]));
-				}
-				for(var nd=0 ; nd < varArray.length ; nd++) {
-					startArray.push(varArray[nd].start());
-				}
-				return startArray;
-			}*/
+		var endID = forward ? 
+			(actualStatus[row] !== endSwith ? 
+				actualStatus.map((value, index) => index === row ? value + 1 : value)
+				: actualStatus)
+			: (actualStatus[row] !== 0 ?
+				actualStatus.map((value, index) => index === row ? value - 1 : value)
+				: actualStatus);
+		var endCode = endID.join("");
+		if(document.getElementById("0000") && document.getElementById(endCode)) {
+			var startList = [], endList = [], tweenArray = [], varArray = [], startArray = [];
+			for(var na=0 ; na < document.getElementById("0000").childNodes.length ; na++) {
+				startList.push(document.getElementById("0000").childNodes[na].id);
+				endList.push(document.getElementById(endCode).childNodes[na].id);
+			}
+			for(var nb=0 ; nb < startList.length ; nb++) {
+				tweenArray.push([startList[nb],endList[nb]]);
+			}
+			for(var nc=0 ; nc < tweenArray.length ; nc++) {
+				varArray.push(twn(tweenArray[nc][0],tweenArray[nc][1]));
+			}
+			for(var nd=0 ; nd < varArray.length ; nd++) {
+				startArray.push(varArray[nd].start());
+			}
+			return startArray;
 		}
-	}
-	
-	function calculateCode(status,row,forward) {
-		"use strict";
-		if(status.every((elem) => {return elem >= 0}) && status[0] < 2 && status[1] < 3 && status[2] < 1 && status[4] < 9) {
-			var endID = forward ? status.map((value, index) => index === row ? value + 1 : value) : status.map((value, index) => index === row ? value - 1 : value);
-			var endString = endID.join("");
-		}
-		return endString;
-	}
-
-
-	
-		
+		actualStatus = endID;
+	}		
 });
