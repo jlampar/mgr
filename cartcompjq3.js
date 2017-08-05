@@ -253,6 +253,10 @@ $(document).ready(function(){
 	function pathBetweening(endSwith,row,forward) {
 		"use strict";
 		console.log(actualStatus.every((elem) => {return elem >= 0}));
+		console.log(actualStatus[0] < 2);
+		console.log(actualStatus[1] < 3);
+		console.log(actualStatus[2] < 1);
+		console.log(actualStatus[3] < 9);
 		if(actualStatus.every((elem) => {return elem >= 0}) && actualStatus[0] < 2 && actualStatus[1] < 3 && actualStatus[2] < 1 && actualStatus[4] < 9) {
 			var endID = forward ? actualStatus.map((value, index) => index === row ? value + 1 : value) : actualStatus.map((value, index) => index === row ? value - 1 : value);
 			var endCode = endID.join("");
