@@ -61,7 +61,7 @@
 }(document, window));
 
 $(document).ready(function(){
-	console.log("Version 4.0");
+	console.log("Version 5.0");
 	var h = document.getElementById("basket").offsetHeight;
 	var w = h;
 	var svg = d3.select(document.getElementById("basket"))
@@ -253,13 +253,12 @@ $(document).ready(function(){
 	function pathBetweening(endSwith,row,forward) {
 		"use strict";
 		
-		//if(actualStatus.forEach() >= 0 && actualStatus[row] <= endSwith - 1) {
-		//	var endID = forward ? actualStatus.map((value, index) => index === row ? value + 1 : value) : actualStatus.map((value, index) => index === row ? value - 1 : value);
-		//	var endCode = endID.join("");
-		//	actualStatus = actualStatus[row] == endSwith - 1 ? actualStatus : endID;
-		//	console.log(actualStatus);
-		var endCode = calculateCode(actualStatus,row,forward);
-		console.log("endCode: ",endCode);
+		if(actualStatus.every((elem) => {return elem >= 0}) && actualStatus[0] < 2 && actualStatus[1] < 3 && actualStatus[2] < 1 && actualStatus[4] < 9) {
+			var endID = forward ? actualStatus.map((value, index) => index === row ? value + 1 : value) : actualStatus.map((value, index) => index === row ? value - 1 : value);
+			var endCode = endID.join("");
+			actualStatus = endID;
+			console.log(actualStatus);
+		//var endCode = calculateCode(actualStatus,row,forward);
 			if(document.getElementById("0000") && document.getElementById(endCode)) {
 				var startList = [], endList = [], tweenArray = [], varArray = [], startArray = [];
 				for(var na=0 ; na < document.getElementById("0000").childNodes.length ; na++) {
@@ -277,7 +276,7 @@ $(document).ready(function(){
 				}
 				return startArray;
 			}
-		//}
+		}
 	}
 	
 	function calculateCode(status,row,forward) {
