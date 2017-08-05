@@ -61,7 +61,7 @@
 }(document, window));
 
 $(document).ready(function(){
-	alert("Version 7.0");
+	alert("Version 8.0");
 	var h = document.getElementById("basket").offsetHeight;
 	var w = h;
 	var svg = d3.select(document.getElementById("basket"))
@@ -260,25 +260,8 @@ $(document).ready(function(){
 			: (actualStatus[row] !== 0 ?
 				actualStatus.map((value, index) => index === row ? value - 1 : value)
 				: actualStatus);
-			var endCode = endID.join("");
-			console.log("0000 ---> ",endID);
-			if(document.getElementById("0000") && document.getElementById(endCode)) {
-				var startList = [], endList = [], tweenArray = [], varArray = [], startArray = [];
-				for(var na=0 ; na < document.getElementById("0000").childNodes.length ; na++) {
-					startList.push(document.getElementById("0000").childNodes[na].id);
-					endList.push(document.getElementById(endCode).childNodes[na].id);
-				}
-				for(var nb=0 ; nb < startList.length ; nb++) {
-					tweenArray.push([startList[nb],endList[nb]]);
-				}
-				for(var nc=0 ; nc < tweenArray.length ; nc++) {
-					varArray.push(twn(tweenArray[nc][0],tweenArray[nc][1]));
-				}
-				for(var nd=0 ; nd < varArray.length ; nd++) {
-					startArray.push(varArray[nd].start());
-				}
-			return startArray;
-			}
+		var endCode = endID.join("");
+		console.log("0000 ---> ",endID);
 		actualStatus = endID;
 	}
 });
