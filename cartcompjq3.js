@@ -187,19 +187,19 @@ $(document).ready(function(){
 		});
 
 	//clone function taken from SVG Path Morph Utility for KUTE.js
-	clone = function(a) {
-				var copy;
-				if (a instanceof Array) {
-					copy = [];
-					for (var i = 0, len = a.length; i < len; i++) {
-						copy[i] = clone(a[i]);
-					}
-					return copy;
-				}
-				return a;
-			};
+	function clone(a) {
+		var copy;
+		if (a instanceof Array) {
+			copy = [];
+			for (var i = 0, len = a.length; i < len; i++) {
+				copy[i] = clone(a[i]);
+			}
+			return copy;
+		}
+		return a;
+	};
 	
-	pathParser = function(ID) {
+	function pathParser(ID) {
 		if(document.getElementById(ID)) {
 			var str = document.getElementById(ID).getAttribute("d");
 			var qstr = '"'+String(str)+'"';
@@ -213,7 +213,7 @@ $(document).ready(function(){
 		};
 	
 	//function based on KUTE.js Path Morph Log best morph index from SVG Path Morph Utility for KUTE.js
-	bestIndex = function(IDenter,IDexit) {
+	function bestIndex(IDenter,IDexit) {
 		if(document.getElementById(IDenter) && document.getElementById(IDexit)) {
 			enterPath = pathParser(IDenter);
 			exitPath = pathParser(IDexit);
@@ -233,7 +233,7 @@ $(document).ready(function(){
 		};
 			
 	//function checks both paths, finds the best morph index and waits for execution
-	twn = function(ID1,ID2) {
+	function twn(ID1,ID2) {
 		if(document.getElementById(ID1) && document.getElementById(ID2)) {
 			enID = document.getElementById(ID1);
 			exID = document.getElementById(ID2);
@@ -252,7 +252,7 @@ $(document).ready(function(){
 	
 	function pathBetweening(endSwith,row,forward) {
 		"use strict";
-		if(actualStatus[row] >= 0 && actualStatus[row] < endSwith) {
+		if(actualStatus[row] > -1 && actualStatus[row] < endSwith) {
 			var endID = forward ? actualStatus.map((value, index) => index === row ? value + 1 : value) : actualStatus.map((value, index) => index === row ? value - 1 : value);
 			var endCode = endID.join("");
 			actualStatus = endID;
