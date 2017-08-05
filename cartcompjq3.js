@@ -61,7 +61,7 @@
 }(document, window));
 
 $(document).ready(function(){
-	console.log("Version 2.0");
+	console.log("Version 3.0");
 	var h = document.getElementById("basket").offsetHeight;
 	var w = h;
 	var svg = d3.select(document.getElementById("basket"))
@@ -255,7 +255,7 @@ $(document).ready(function(){
 		if(actualStatus[row] >= 0 && actualStatus[row] <= endSwith - 1) {
 			var endID = forward ? actualStatus.map((value, index) => index === row ? value + 1 : value) : actualStatus.map((value, index) => index === row ? value - 1 : value);
 			var endCode = endID.join("");
-			actualStatus = actualStatus[row] == endSwith - 1 || actualStatus[row] == 0 ? actualStatus : endID;
+			actualStatus = actualStatus[row] == endSwith - 1 ? actualStatus : endID;
 			console.log(actualStatus);
 			if(document.getElementById("0000") && document.getElementById(endCode)) {
 				var startList = [], endList = [], tweenArray = [], varArray = [], startArray = [];
