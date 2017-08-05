@@ -61,7 +61,7 @@
 }(document, window));
 
 $(document).ready(function(){
-	console.log("Version 1.0");
+	console.log("Version 2.0");
 	var h = document.getElementById("basket").offsetHeight;
 	var w = h;
 	var svg = d3.select(document.getElementById("basket"))
@@ -252,7 +252,7 @@ $(document).ready(function(){
 	
 	function pathBetweening(endSwith,row,forward) {
 		"use strict";
-		while(actualStatus[row] >= 0 && actualStatus[row] <= endSwith - 1) {
+		if(actualStatus[row] >= 0 && actualStatus[row] <= endSwith - 1) {
 			var endID = forward ? actualStatus.map((value, index) => index === row ? value + 1 : value) : actualStatus.map((value, index) => index === row ? value - 1 : value);
 			var endCode = endID.join("");
 			actualStatus = actualStatus[row] == endSwith - 1 || actualStatus[row] == 0 ? actualStatus : endID;
