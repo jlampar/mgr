@@ -128,14 +128,14 @@ $(document).ready(function(){
 	
 	var actualStatus = [0,0,0,0];
 
-	document.getElementById('nBase').onclick = function(){pathBetweening(3,0,true);};
-	document.getElementById('pBase').onclick = function(){pathBetweening(3,0,false);};
-	document.getElementById('nGene').onclick = function(){pathBetweening(4,1,true);};
-	document.getElementById('pGene').onclick = function(){pathBetweening(4,1,false);};
-	document.getElementById('nNet').onclick = function(){pathBetweening(2,2,true);};
-	document.getElementById('pNet').onclick = function(){pathBetweening(2,2,false);};
-	document.getElementById('nGauss').onclick = function(){pathBetweening(10,3,true);};
-	document.getElementById('pGauss').onclick = function(){pathBetweening(10,3,false);};
+	document.getElementById('nBase').onclick = function(){pathBetweening(2,0,true)};
+	document.getElementById('pBase').onclick = function(){pathBetweening(2,0,false)};
+	document.getElementById('nGene').onclick = function(){pathBetweening(3,1,true)};
+	document.getElementById('pGene').onclick = function(){pathBetweening(3,1,false)};
+	document.getElementById('nNet').onclick = function(){pathBetweening(1,2,true)};
+	document.getElementById('pNet').onclick = function(){pathBetweening(1,2,false)};
+	document.getElementById('nGauss').onclick = function(){pathBetweening(9,3,true)};
+	document.getElementById('pGauss').onclick = function(){pathBetweening(9,3,false)};
 	
 	var cnt = $('#cont');
 	var head = $('#header');
