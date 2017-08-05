@@ -61,7 +61,7 @@
 }(document, window));
 
 $(document).ready(function(){
-	alert("Version 9.0");
+	alert("Version 10.0");
 	var h = document.getElementById("basket").offsetHeight;
 	var w = h;
 	var svg = d3.select(document.getElementById("basket"))
@@ -262,7 +262,7 @@ $(document).ready(function(){
 				: actualStatus);
 		var endCode = endID.join("");
 		console.log("0000 ---> ",endID);
-		if(document.getElementById("0000") && document.getElementById(endCode)) {
+		/*if(document.getElementById("0000") && document.getElementById(endCode)) {
 			var startList = [], endList = [], tweenArray = [], varArray = [], startArray = [];
 			for(var na=0 ; na < document.getElementById("0000").childNodes.length ; na++) {
 				startList.push(document.getElementById("0000").childNodes[na].id);
@@ -278,7 +278,7 @@ $(document).ready(function(){
 				startArray.push(varArray[nd].start());
 			}
 			return startArray;
-		}
+		}*/
 		actualStatus = endID;
 	}
 });
