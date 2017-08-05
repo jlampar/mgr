@@ -255,7 +255,7 @@ $(document).ready(function(){
 		while(actualStatus[row] >= 0 && actualStatus[row] <= endSwith - 1) {
 			var endID = forward ? actualStatus.map((value, index) => index === row ? value + 1 : value) : actualStatus.map((value, index) => index === row ? value - 1 : value);
 			var endCode = endID.join("");
-			actualStatus = endID;
+			actualStatus = actualStatus[row] == endSwith - 1 || actualStatus[row] == 0 ? actualStatus : endID;
 			console.log(actualStatus);
 			if(document.getElementById("0000") && document.getElementById(endCode)) {
 				var startList = [], endList = [], tweenArray = [], varArray = [], startArray = [];
