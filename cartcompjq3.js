@@ -250,10 +250,10 @@ $(document).ready(function(){
 			}
 		}
 	
-	function pathBetweening(endSwith,row,forward) {
+	function pathBetweening(endSwitch,row,forward) {
 		"use strict";
 		var endID = forward ? 
-			(actualStatus[row] !== endSwith ? 
+			(actualStatus[row] !== endSwitch ? 
 				actualStatus.map((value, index) => index === row ? value + 1 : value)
 				: actualStatus)
 			: (actualStatus[row] !== 0 ?
