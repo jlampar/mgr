@@ -84,7 +84,9 @@ $(document).ready(function(){
 
 	queue.awaitAll(function(error, topology) {
 		if (error) throw error;
-		var initjson = topojson.feature(topology[199], Object.values(topology[199].objects)[0]);
+		var initURL = "https://rawgit.com/jlampar/mgr/master/jsonfile/cJSON/c2019.min.topojson"
+		d3.json(initURL, (initTopo) => {var initjson = topojson.feature(initTopo, initTopo.objects)[0]});
+		//var initjson = topojson.feature(topology[199], Object.values(topology[199].objects)[0]);
 		mercator
 			.scale(1)
 			.translate([0,0]);
