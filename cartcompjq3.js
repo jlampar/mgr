@@ -88,8 +88,9 @@ $(document).ready(function(){
 	
 	queue.awaitAll(function(error, topology) {
 		if (error) throw error;
-		var initURL = "https://rawgit.com/jlampar/mgr/master/jsonfile/cJSON/c2019.min.topojson"
-		var initjson = topojson.feature(topology[199], Object.values(topology[199].objects)[0]);
+		var largestExtent = topology.findIndex(orderList.findIndex("2019"));
+		console.log(largestExtent);
+		var initjson = topojson.feature(topology[largestExtent], Object.values(topology[largestExtent].objects)[0]);
 		
 		mercator
 			.scale(1)
