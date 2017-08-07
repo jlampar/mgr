@@ -88,7 +88,7 @@ $(document).ready(function(){
 	
 	queue.awaitAll(function(error, topology) {
 		if (error) throw error;
-		var largestExtent = topology.findIndex(orderList.findIndex("2019"));
+		var largestExtent = orderList.indexOf("2019");
 		console.log(largestExtent);
 		var initjson = topojson.feature(topology[largestExtent], Object.values(topology[largestExtent].objects)[0]);
 		
