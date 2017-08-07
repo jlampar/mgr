@@ -61,7 +61,7 @@
 }(document, window));
 
 $(document).ready(function(){
-	alert("Version 12.0");
+	alert("Version 13.0");
 	var h = document.getElementById("basket").offsetHeight;
 	var w = h;
 	var svg = d3.select(document.getElementById("basket"))
