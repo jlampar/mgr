@@ -85,18 +85,20 @@ $(document).ready(function(){
 	queue.awaitAll(function(error, topology) {
 		if (error) throw error;
 		var initURL = "https://rawgit.com/jlampar/mgr/master/jsonfile/cJSON/c2019.min.topojson"
-		d3.json(initURL, (initTopo) => {var initjson = topojson.feature(initTopo, initTopo.objects)[0]});
+		d3.json(initURL, (initTopo) => {
+			var initjson = topojson.feature(initTopo, initTopo.objects)[0];
+			mercator
+				.scale(1)
+				.translate([0,0]);
+			var geoPathInit = d3.geoPath().projection(mercator);
+			var b = geoPathInit.bounds(initjson);
+			var s = .95 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h);
+			var t = [(w - s * (b[1][0] + b[0][0])) / 2, (h - s * (b[1][1] + b[0][1])) / 2];
+			mercator
+				.scale(s)
+				.translate(t);
+		});
 		//var initjson = topojson.feature(topology[199], Object.values(topology[199].objects)[0]);
-		mercator
-			.scale(1)
-			.translate([0,0]);
-		var geoPathInit = d3.geoPath().projection(mercator);
-		var b = geoPathInit.bounds(initjson);
-		var s = .95 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h);
-		var t = [(w - s * (b[1][0] + b[0][0])) / 2, (h - s * (b[1][1] + b[0][1])) / 2];
-		mercator
-			.scale(s)
-			.translate(t);
 
 		for(var pth = 0; pth < topology.length; pth++) {
 			var geoPath = d3.geoPath().projection(mercator);
