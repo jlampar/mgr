@@ -75,31 +75,33 @@ $(document).ready(function(){
 	var mercator = d3.geoMercator();
 
 	var fileList = ['0000','0001','0002','0003','0004','0005','0006','0007','0008','0009','0010','0011','0012','0013','0014','0015','0016','0017','0018','0019','0100','0101','0102','0103','0104','0105','0106','0107','0108','0109','0110','0111','0112','0113','0114','0115','0116','0117','0118','0119','0200','0201','0202','0203','0204','0205','0206','0207','0208','0209','0210','0211','0212','0213','0214','0215','0216','0217','0218','0219','0300','0301','0302','0303','0304','0305','0306','0307','0308','0309','0310','0311','0312','0313','0314','0315','0316','0317','0318','0319','1000','1001','1002','1003','1004','1005','1006','1007','1008','1009','1010','1011','1012','1013','1014','1015','1016','1017','1018','1019','1100','1101','1102','1103','1104','1105','1106','1107','1108','1109','1110','1111','1112','1113','1114','1115','1116','1117','1118','1119','1200','1201','1202','1203','1204','1205','1206','1207','1208','1209','1210','1211','1212','1213','1214','1215','1216','1217','1218','1219','1300','1301','1302','1303','1304','1305','1306','1307','1308','1309','1310','1311','1312','1313','1314','1315','1316','1317','1318','1319','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2100','2101','2102','2103','2104','2105','2106','2107','2108','2109','2110','2111','2112','2113','2114','2115','2116','2117','2118','2119','2200','2201','2202','2203','2204','2205','2206','2207','2208','2209','2210','2211','2212','2213','2214','2215','2216','2217','2218','2219','2300','2301','2302','2303','2304','2305','2306','2307','2308','2309','2310','2311','2312','2313','2314','2315','2316','2317','2318','2319'];
+	var orderList = [];
 	
 	var queue = d3.queue();
 	fileList.forEach(function(file) {
 		var urlJSON = "https://rawgit.com/jlampar/mgr/master/jsonfile/cJSON/c" + file + ".min.topojson";
 		queue.defer(d3.json, urlJSON);
+		orderList.push(file);
 	});
-
+	
+	console.log(orderList);
+	
 	queue.awaitAll(function(error, topology) {
 		if (error) throw error;
 		var initURL = "https://rawgit.com/jlampar/mgr/master/jsonfile/cJSON/c2019.min.topojson"
-		d3.json(initURL, (initTopo) => {
-			var initjson = topojson.feature(initTopo, initTopo.objects)[0];
-			mercator
-				.scale(1)
-				.translate([0,0]);
-			var geoPathInit = d3.geoPath().projection(mercator);
-			var b = geoPathInit.bounds(initjson);
-			var s = .95 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h);
-			var t = [(w - s * (b[1][0] + b[0][0])) / 2, (h - s * (b[1][1] + b[0][1])) / 2];
-			mercator
-				.scale(s)
-				.translate(t);
-		});
-		//var initjson = topojson.feature(topology[199], Object.values(topology[199].objects)[0]);
-
+		var initjson = topojson.feature(topology[199], Object.values(topology[199].objects)[0]);
+		
+		mercator
+			.scale(1)
+			.translate([0,0]);
+		var geoPathInit = d3.geoPath().projection(mercator);
+		var b = geoPathInit.bounds(initjson);
+		var s = .95 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h);
+		var t = [(w - s * (b[1][0] + b[0][0])) / 2, (h - s * (b[1][1] + b[0][1])) / 2];
+		mercator
+			.scale(s)
+			.translate(t);
+		
 		for(var pth = 0; pth < topology.length; pth++) {
 			var geoPath = d3.geoPath().projection(mercator);
 			var dat = topojson.feature(topology[pth], Object.values(topology[pth].objects)[0]);
