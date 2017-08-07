@@ -61,7 +61,7 @@
 }(document, window));
 
 $(document).ready(function(){
-	alert("Version 13.0");
+	alert("Version 14.0");
 	var h = document.getElementById("basket").offsetHeight;
 	var w = h;
 	var svg = d3.select(document.getElementById("basket"))
@@ -84,14 +84,11 @@ $(document).ready(function(){
 		orderList.push(file);
 	});
 	
-	console.log(orderList);
-	
 	queue.awaitAll(function(error, topology) {
 		if (error) throw error;
 		var largestExtent = orderList.indexOf("2019");
-		console.log(largestExtent);
 		var initjson = topojson.feature(topology[largestExtent], Object.values(topology[largestExtent].objects)[0]);
-		
+		orderList.length = 0;
 		mercator
 			.scale(1)
 			.translate([0,0]);
@@ -233,7 +230,7 @@ $(document).ready(function(){
 				dx = Math.abs(enterClone[i][0] - exitClone[i][0]);
 				dy = Math.abs(enterClone[i][1] - exitClone[i][1]);
 				dxy.push(Math.sqrt(dx*dx + dy*dy));
-				exitClone = []; exitClone = clone(exitPath); numerator = null;
+				exitClone.length = 0; exitClone = clone(exitPath); numerator = null;
 				}
 			return dxy.indexOf(Math.min.apply(null,dxy));
 			}
@@ -259,7 +256,6 @@ $(document).ready(function(){
 	
 	function pathBetweening(endSwith,row,forward) {
 		"use strict";
-		console.log(actualStatus);
 		var endID = forward ? 
 			(actualStatus[row] !== endSwith ? 
 				actualStatus.map((value, index) => index === row ? value + 1 : value) 
@@ -286,6 +282,11 @@ $(document).ready(function(){
 				startArray.push(varArray[nd].start());
 			}
 			return startArray;
+			startList.length = 0; 
+			endList.length = 0; 
+			tweenArray.length = 0;
+			varArray.length = 0;
+			startArray.length = 0;
 		}
 		
 	}
