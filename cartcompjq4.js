@@ -80,7 +80,7 @@ $(document).ready(function(){
 	var color = d3.scaleThreshold()
 		//.domain([2.0,3.3,5.2,6.4,8.8,12.5])
 		.domain([34000, 53000, 111000, 168000, 203000, 497000, 1416412])
-		.range(['#f2f0f7','#dadaeb','#bcbddc','#9e9ac8','#807dba','#6a51a3','#4a1486']);
+		.range(['#f2f0f7','#dadaeb','#bcbddc','#9e9ac8','#807dba','#6a51a3','#4a1486']);	
 	
 	var queue = d3.queue();
 
