@@ -206,7 +206,7 @@ $(document).ready(function(){
 
 			var commaFormat = d3.format(".1f");
 
-			for(var l=0 ; l < colorRange.length ; l++) {
+			for(var l = colorRange.length - 1 ; l >= 0 ; l--) {
 				var targetDiv = "leg"+l;
 				d3.select(document.getElementById("legendBasket")).append("div").style("display", "block").attr("id", targetDiv);
 				var liDiv = d3.select(document.getElementById(targetDiv));
