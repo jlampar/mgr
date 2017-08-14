@@ -97,7 +97,7 @@ $(document).ready(function(){
 		orderList.push(file);
 	});
 
-	queue.defer(d3.csv, "https://rawgit.com/jlampar/mgr/master/choropeth_data.csv");
+	queue.defer(d3.csv, "https://rawgit.com/jlampar/mgr/master/data/choropeth_data.csv");
 
 	queue.awaitAll(function(error, dataSet) {
 		"use strict";
