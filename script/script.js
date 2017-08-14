@@ -92,7 +92,7 @@ $(document).ready(function(){
 	var queue = d3.queue();
 
 	fileList.forEach(function(file) {
-		var urlJSON = "https://rawgit.com/jlampar/mgr/master/jsonfile/cJSON/c" + file + ".min.topojson";
+		var urlJSON = "https://rawgit.com/jlampar/mgr/master/data/JSON/c" + file + ".min.topojson";
 		queue.defer(d3.json, urlJSON);
 		orderList.push(file);
 	});
