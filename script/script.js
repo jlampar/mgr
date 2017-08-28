@@ -315,21 +315,21 @@ $(document).ready(function(){
 			}
 		}
 	
-	//function based on KUTE.js Path Morph Log best morph index from SVG Path Morph Utility for KUTE.js
+			//function based on KUTE.js Path Morph Log best morph index from SVG Path Morph Utility for KUTE.js
 	function bestIndex(IDenter,IDexit) {
 		if(document.getElementById(IDenter) && document.getElementById(IDexit)) {
 			enterPath = pathParser(IDenter);
 			exitPath = pathParser(IDexit);
-			var enterClone = clone(enterPath);
-			var exitClone = clone(exitPath);
-			var dxy = [], dx, dy;
+			var enterClone = clone(enterPath),
+			exitClone = clone(exitPath),
+			dxy = [], dx, dy;
 			for(var i=0;i<exitClone.length;i++) {
-				numerator = exitClone.splice(i,exitPath.length - i);
-				exitClone = numerator.concat(exitClone);
+				idArray = exitClone.splice(i,exitPath.length - i);
+				exitClone = idArray.concat(exitClone);
 				dx = Math.abs(enterClone[i][0] - exitClone[i][0]);
 				dy = Math.abs(enterClone[i][1] - exitClone[i][1]);
 				dxy.push(Math.sqrt(dx*dx + dy*dy));
-				exitClone.length = 0; exitClone = clone(exitPath); numerator = null;
+				exitClone.length = 0; exitClone = clone(exitPath); idArray = null;
 				}
 			return dxy.indexOf(Math.min.apply(null,dxy));
 			}
