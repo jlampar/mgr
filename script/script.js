@@ -240,21 +240,21 @@ $(document).ready(function(){
 	document.getElementById('nGauss').onclick = function(){pathBetweening(9,3,true)};
 	document.getElementById('pGauss').onclick = function(){pathBetweening(9,3,false)};
 	
-	var cnt = $('#cont');
-	var head = $('#header');
-	var parastory = $('#paraStory');
-	var first = $('#first');
-	var second = $('#second');
-	var third = $('#third');
+	var contentDiv = $('#cont'),
+	headerDiv = $('#header'),
+	paraStory = $('#paraStory'),
+	first = $('#first'),
+	second = $('#second'),
+	third = $('#third');
 	$(window).on('scroll', function() {
 		var st = $(this).scrollTop();
-		cnt.css({  
+		contentDiv.css({  
 			'opacity' : 1 - st/200
 			}); 
-		head.css({  
+		headerDiv.css({  
 			'opacity' : 1 - st/130
 			}); 
-		parastory.css({
+		paraStory.css({
 			'opacity' : 0 + st/350
 			});
 		first.css({
@@ -270,7 +270,7 @@ $(document).ready(function(){
 	
 	$(window).on("resize", function() {
 		if($(window).width() <= 961) {
-			parastory.css({"opacity": "1"});
+			paraStory.css({"opacity": "1"});
 			first.css({"opacity": "1"});
 			second.css({"opacity": "1"});
 			third.css({"opacity": "1"});
