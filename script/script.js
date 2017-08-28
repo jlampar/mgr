@@ -304,14 +304,14 @@ $(document).ready(function(){
 	
 	function pathParser(ID) {
 		if(document.getElementById(ID)) {
-			var str = document.getElementById(ID).getAttribute("d");
-			var qstr = '"'+String(str)+'"';
-			var slicedPath = qstr.replace(/[MZ]/g,'').replace(/[L]/g,' ').split(' ');
-			var coo = [];
-			for(var h=0;h<xArray.length;h++) {
-				coo.push([parseFloat(((slicedPath[r].replace(/["]/g,''))[g].split(',')[0])[h]),parseFloat(((slicedPath[r].replace(/["]/g,''))[g].split(',')[1])[h])]);
+			var dAttr = document.getElementById(ID).getAttribute("d"),
+			strPath = '"'+String(dAttr)+'"',
+			slicedPath = strPath.replace(/[MZ]/g,'').replace(/[L]/g,' ').split(' '),
+			coordinatesArray = [];
+			for(var h=0;h<slicedPath.length;h++) {
+				coordinatesArray.push([parseFloat(((slicedPath[r].replace(/["]/g,''))[g].split(',')[0])[h]),parseFloat(((slicedPath[r].replace(/["]/g,''))[g].split(',')[1])[h])]);
 				}
-				return coo;
+				return coordinatesArray;
 			}
 		}
 	
