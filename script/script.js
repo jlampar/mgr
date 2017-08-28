@@ -356,7 +356,7 @@ $(document).ready(function(){
 	//function performs the actual inbetweening
 	function pathBetweening(endSwitch,strRow,forward) {
 		"use strict";
-		var row = int(strRow);
+		var row = parseInt(strRow);
 		var endID = forward ? 
 			(actualStatus[row] !== endSwitch ? 
 				actualStatus.map((value, index) => index === row ? value + 1 : value) 
