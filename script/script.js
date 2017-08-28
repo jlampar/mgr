@@ -362,8 +362,8 @@ $(document).ready(function(){
 				: actualStatus)
 			: (actualStatus[row] !== 0 ?
 				actualStatus.map((value, index) => index === row ? value - 1 : value)
-				: actualStatus),
-		endCode = endID.join(""),
+				: actualStatus);
+		var endCode = endID.join(""),
 		actualStatus = endID;
 		if(document.getElementById("0000") && document.getElementById(endCode)) {
 			
