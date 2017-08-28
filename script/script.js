@@ -336,16 +336,16 @@ $(document).ready(function(){
 		}
 			
 	//function checks both paths, finds the best morph index and waits for execution
-	function twn(ID1,ID2) {
+	function tweening(ID1,ID2) {
 		if(document.getElementById(ID1) && document.getElementById(ID2)) {
-			enID = document.getElementById(ID1);
-			exID = document.getElementById(ID2);
-			var tween = KUTE.fromTo(enID, 
-				{path: enID},
-				{path: exID},
+			enterID = document.getElementById(ID1);
+			exitID = document.getElementById(ID2);
+			var tween = KUTE.fromTo(enterID, 
+				{path: enterID},
+				{path: exitID},
 				{
 					morphPrecision: 1,
-					morphIndex: bestIndex(enID,exID),
+					morphIndex: bestIndex(enterID,exitID),
 					easing: 'easingElasticInOut',
 					duration: 500
 					});
@@ -365,7 +365,6 @@ $(document).ready(function(){
 				: actualStatus);
 		var endCode = endID.join("");
 		actualStatus = endID;
-		console.log("0000 ---> ",endID);
 		if(document.getElementById("0000") && document.getElementById(endCode)) {
 			
 			document.getElementById("tdBase").innerHTML = description.based[actualStatus[0]];
@@ -382,7 +381,7 @@ $(document).ready(function(){
 				tweenArray.push([startList[nb],endList[nb]]);
 			}
 			for(var nc=0 ; nc < tweenArray.length ; nc++) {
-				varArray.push(twn(tweenArray[nc][0],tweenArray[nc][1]));
+				varArray.push(tweening(tweenArray[nc][0],tweenArray[nc][1]));
 			}
 			for(var nd=0 ; nd < varArray.length ; nd++) {
 				startArray.push(varArray[nd].start());
