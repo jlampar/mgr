@@ -107,9 +107,9 @@ $(document).ready(function(){
 		csv = dataSet[dataSet.length - 1];
 		csv.forEach(
 			function(d) {
-				widzObj[d.woj] = +d.widz;
-				wzgObj[d.woj] = +d.wzgwidz;
-				areaObj[d.woj] = +d.area;
+				widzObj[d.NID] = +d.widz;
+				wzgObj[d.NID] = +d.wzgwidz;
+				areaObj[d.NID] = +d.area;
 			});
 
 		var largestExtent = orderList.indexOf("2019");
@@ -140,9 +140,9 @@ $(document).ready(function(){
 					.data(dat.features)
 					.enter()
 					.append("path")
-					.attr("id", function(d) {return d.properties.woj + lists.files[pth];})
+					.attr("id", function(d) {return d.properties.NID + lists.files[pth];})
 					.attr("d", geoPath)
-					.style("fill", function(d) {return color(widzObj[d.properties.woj]);})
+					.style("fill", function(d) {return color(widzObj[d.properties.NID]);})
 					.style("stroke", "black")
 					.style("stroke-width", "0.05em");
 			} else {
@@ -153,7 +153,7 @@ $(document).ready(function(){
 					.data(dat.features)
 					.enter()
 					.append("path")
-					.attr("id", function(d) {return d.properties.woj + lists.files[pth];})
+					.attr("id", function(d) {return d.properties.NID + lists.files[pth];})
 					.attr("d", geoPath);
 			}
 			
@@ -198,9 +198,9 @@ $(document).ready(function(){
 				.data(dat2.features)
 				.enter()
 				.append("path")
-				.attr("id", function(d) {return d.properties.woj;})
+				.attr("id", function(d) {return d.properties.NID;})
 				.attr("d", geoPath2)
-				.style("fill", function(d) {return colorRel(wzgObj[d.properties.woj])})
+				.style("fill", function(d) {return colorRel(wzgObj[d.properties.NID])})
 				.style("stroke", "black")
 				.style("stroke-width", "0.01em");
 
