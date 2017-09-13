@@ -309,7 +309,7 @@ $(document).ready(function(){
 			slicedPath = strPath.replace(/[MZ]/g,'').replace(/[L]/g,' ').split(' '),
 			coordinatesArray = [];
 			for(var h=0;h<slicedPath.length;h++) {
-				coordinatesArray.push([parseFloat(((slicedPath[r].replace(/["]/g,''))[g].split(',')[0])[h]),parseFloat(((slicedPath[r].replace(/["]/g,''))[g].split(',')[1])[h])]);
+				coordinatesArray.push([parseFloat(((slicedPath.replace(/["]/g,'')).split(',')[0])[h]),parseFloat(((slicedPath.replace(/["]/g,'')).split(',')[1])[h])]);
 				}
 				return coordinatesArray;
 			}
