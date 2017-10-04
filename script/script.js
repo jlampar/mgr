@@ -215,14 +215,14 @@ $(document).ready(function(){
 						"powyżej " + String(commaFormat(lists.breaksRelative[l-1])) : 
 							(l == 0 ? "mniej niż " + String(commaFormat(lists.breaksRelative[l+1])) : 
 							commaFormat(lists.breaksRelative[l-1]) + " - " + commaFormat(lists.breaksRelative[l]))
-					).style("display", "inline-block").style("width", "170px").style("height", "10px").style("text-align", "right").style("margin-right", "1em");
+					).style("display", "inline-block").style("width", "170px").style("height", "7px").style("text-align", "right").style("margin-right", "1em");
 				liDiv.append("div").style("background-color", lists.colors[l]).style("width", "30px").style("height", "10px").style("display", "inline-block");
 				liDiv.append("div").text(
 					(l == lists.colors.length - 1) ? 
 						"powyżej " + String(lists.breaksAbsolute[l-1]) : 
 							(l == 0 ? "mniej niż " + String(lists.breaksAbsolute[l+1]) : 
 							String(lists.breaksAbsolute[l-1]) + " - " + String(lists.breaksAbsolute[l]))
-					).style("display", "inline-block").style("width", "170px").style("height", "10px").style("text-align", "left").style("margin-left", "1em");
+					).style("display", "inline-block").style("width", "170px").style("height", "7px").style("text-align", "left").style("margin-left", "1em");
 			}
 
 		});
