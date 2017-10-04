@@ -223,7 +223,8 @@ $(document).ready(function(){
 		net: ["256","512"],
 		kernel: ["151","81","61","41","21","11","7","5","3","1"]
 	}
-
+	
+	var memoryStatus = null;
 	var actualStatus = [0,0,0,0];
 
 	document.getElementById("tdBase").innerHTML = description.based[actualStatus[0]];
@@ -239,36 +240,6 @@ $(document).ready(function(){
 	document.getElementById('pNet').onclick = function(){pathBetweening(1,2,false)};
 	document.getElementById('nGauss').onclick = function(){pathBetweening(9,3,true)};
 	document.getElementById('pGauss').onclick = function(){pathBetweening(9,3,false)};
-	
-	(function() {
-		if(document.getElementById("tdBase").innerHTML == description.based[0]) {
-			$('#pBase').css({'display': 'none'})
-		} else {$('#pBase').css({'display': 'inline-block'})};
-		if(document.getElementById("tdBase").innerHTML == description.based[2]) {
-			$('#nBase').css({'display': 'none'})
-		} else {$('#nBase').css({'display': 'inline-block'})};
-		
-		if(document.getElementById("tdGene").innerHTML == description.gene[0]) {
-			$('#pGene').css({'display': 'none'})
-		} else {$('#pGene').css({'display': 'inline-block'})};
-		if(document.getElementById("tdGene").innerHTML == description.gene[3]) {
-			$('#nGene').css({'display': 'none'})
-		} else {$('#nGene').css({'display': 'inline-block'})};
-		
-		if(document.getElementById("tdNet").innerHTML == description.net[0]) {
-			$('#pNet').css({'display': 'none'})
-		} else {$('#pNet').css({'display': 'inline-block'})};
-		if(document.getElementById("tdNet").innerHTML == description.net[1]) {
-			$('#nNet').css({'display': 'none'})
-		} else {$('#nNet').css({'display': 'inline-block'})};
-		
-		if(document.getElementById("tdGauss").innerHTML == description.kernel[0]) {
-			$('#nGauss').css({'display': 'none'})
-		} else {$('#nGauss').css({'display': 'inline-block'})};
-		if(document.getElementById("tdGauss").innerHTML == description.kernel[9]) {
-			$('#pGauss').css({'display': 'none'})
-		} else {$('#pGauss').css({'display': 'inline-block'})};
-	})();
 	
 	var contentDiv = $('#cont'),
 	headerDiv = $('#header'),
@@ -394,8 +365,9 @@ $(document).ready(function(){
 				actualStatus.map((value, index) => index === row ? value - 1 : value)
 				: actualStatus);
 		var endCode = endID.join("");
+		memoryStatus = actualStatus;
 		actualStatus = endID;
-		if(document.getElementById("0000") && document.getElementById(endCode)) {
+		if(document.getElementById("0000") && document.getElementById(endCode) && memoryStatus.join("") !== endCode) {
 			
 			document.getElementById("tdBase").innerHTML = description.based[actualStatus[0]];
 			document.getElementById("tdGene").innerHTML = description.gene[actualStatus[1]];
