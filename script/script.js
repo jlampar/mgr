@@ -243,31 +243,31 @@ $(document).ready(function(){
 	(function() {
 		if(document.getElementById("tdBase").innerHTML == description.based[0]) {
 			$('#pBase').css({'display': 'none'})
-		};
+		} else {$('#pBase').css({'display': 'inline-block'})};
 		if(document.getElementById("tdBase").innerHTML == description.based[2]) {
 			$('#nBase').css({'display': 'none'})
-		};
+		} else {$('#nBase').css({'display': 'inline-block'})};
 		
 		if(document.getElementById("tdGene").innerHTML == description.gene[0]) {
 			$('#pGene').css({'display': 'none'})
-		};
+		} else {$('#pGene').css({'display': 'inline-block'})};
 		if(document.getElementById("tdGene").innerHTML == description.gene[3]) {
 			$('#nGene').css({'display': 'none'})
-		};
+		} else {$('#nGene').css({'display': 'inline-block'})};
 		
 		if(document.getElementById("tdNet").innerHTML == description.net[0]) {
 			$('#pNet').css({'display': 'none'})
-		};
+		} else {$('#pNet').css({'display': 'inline-block'})};
 		if(document.getElementById("tdNet").innerHTML == description.net[1]) {
 			$('#nNet').css({'display': 'none'})
-		};
+		} else {$('#nNet').css({'display': 'inline-block'})};
 		
 		if(document.getElementById("tdGauss").innerHTML == description.kernel[0]) {
 			$('#nGauss').css({'display': 'none'})
-		};
+		} else {$('#nGauss').css({'display': 'inline-block'})};
 		if(document.getElementById("tdGauss").innerHTML == description.kernel[9]) {
 			$('#pGauss').css({'display': 'none'})
-		};
+		} else {$('#pGauss').css({'display': 'inline-block'})};
 	})();
 	
 	var contentDiv = $('#cont'),
