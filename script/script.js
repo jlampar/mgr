@@ -242,31 +242,31 @@ $(document).ready(function(){
 	
 	(function() {
 		if(document.getElementById("tdBase").innerHTML == description.based[0]) {
-			$(#pBase).css({'display': none})
+			$('#pBase').css({'display': none})
 		};
 		if(document.getElementById("tdBase").innerHTML == description.based[2]) {
-			$(#nBase).css({'display': none})
+			$('#nBase').css({'display': none})
 		};
 		
 		if(document.getElementById("tdGene").innerHTML == description.gene[0]) {
-			$(#pGene).css({'display': none})
+			$('#pGene').css({'display': none})
 		};
 		if(document.getElementById("tdGene").innerHTML == description.gene[3]) {
-			$(#nGene).css({'display': none})
+			$('#nGene').css({'display': none})
 		};
 		
 		if(document.getElementById("tdNet").innerHTML == description.net[0]) {
-			$(#pNet).css({'display': none})
+			$('#pNet').css({'display': none})
 		};
 		if(document.getElementById("tdNet").innerHTML == description.net[1]) {
-			$(#nNet).css({'display': none})
+			$('#nNet').css({'display': none})
 		};
 		
 		if(document.getElementById("tdGauss").innerHTML == description.kernel[0]) {
-			$(#nGauss).css({'display': none})
+			$('#nGauss').css({'display': none})
 		};
 		if(document.getElementById("tdGauss").innerHTML == description.kernel[9]) {
-			$(#pGauss).css({'display': none})
+			$('#pGauss').css({'display': none})
 		};
 	})();
 	
