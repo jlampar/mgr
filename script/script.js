@@ -241,31 +241,31 @@ $(document).ready(function(){
 	document.getElementById('pGauss').onclick = function(){pathBetweening(9,3,false)};
 	
 	(function() {
-		if(document.getElementById("tdBase").innerHTML = description.based[0]) {
+		if(document.getElementById("tdBase").innerHTML == description.based[0]) {
 			$(#pBase).css({'display': none})
 		};
-		if(document.getElementById("tdBase").innerHTML = description.based[2]) {
+		if(document.getElementById("tdBase").innerHTML == description.based[2]) {
 			$(#nBase).css({'display': none})
 		};
 		
-		if(document.getElementById("tdGene").innerHTML = description.gene[0]) {
+		if(document.getElementById("tdGene").innerHTML == description.gene[0]) {
 			$(#pGene).css({'display': none})
 		};
-		if(document.getElementById("tdGene").innerHTML = description.gene[3]) {
+		if(document.getElementById("tdGene").innerHTML == description.gene[3]) {
 			$(#nGene).css({'display': none})
 		};
 		
-		if(document.getElementById("tdNet").innerHTML = description.net[0]) {
+		if(document.getElementById("tdNet").innerHTML == description.net[0]) {
 			$(#pNet).css({'display': none})
 		};
-		if(document.getElementById("tdNet").innerHTML = description.net[1]) {
+		if(document.getElementById("tdNet").innerHTML == description.net[1]) {
 			$(#nNet).css({'display': none})
 		};
 		
-		if(document.getElementById("tdGauss").innerHTML = description.kernel[0]) {
+		if(document.getElementById("tdGauss").innerHTML == description.kernel[0]) {
 			$(#nGauss).css({'display': none})
 		};
-		if(document.getElementById("tdGauss").innerHTML = description.kernel[9]) {
+		if(document.getElementById("tdGauss").innerHTML == description.kernel[9]) {
 			$(#pGauss).css({'display': none})
 		};
 	})();
