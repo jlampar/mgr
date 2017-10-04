@@ -240,6 +240,36 @@ $(document).ready(function(){
 	document.getElementById('nGauss').onclick = function(){pathBetweening(9,3,true)};
 	document.getElementById('pGauss').onclick = function(){pathBetweening(9,3,false)};
 	
+	(function() {
+		if(document.getElementById("tdBase").innerHTML = description.based[0]) {
+			$(#pBase).css({'display': none})
+		};
+		if(document.getElementById("tdBase").innerHTML = description.based[2]) {
+			$(#nBase).css({'display': none})
+		};
+		
+		if(document.getElementById("tdGene").innerHTML = description.gene[0]) {
+			$(#pGene).css({'display': none})
+		};
+		if(document.getElementById("tdGene").innerHTML = description.gene[3]) {
+			$(#nGene).css({'display': none})
+		};
+		
+		if(document.getElementById("tdNet").innerHTML = description.net[0]) {
+			$(#pNet).css({'display': none})
+		};
+		if(document.getElementById("tdNet").innerHTML = description.net[1]) {
+			$(#nNet).css({'display': none})
+		};
+		
+		if(document.getElementById("tdGauss").innerHTML = description.kernel[0]) {
+			$(#nGauss).css({'display': none})
+		};
+		if(document.getElementById("tdGauss").innerHTML = description.kernel[9]) {
+			$(#pGauss).css({'display': none})
+		};
+	})();
+	
 	var contentDiv = $('#cont'),
 	headerDiv = $('#header'),
 	paraStory = $('#paraStory'),
