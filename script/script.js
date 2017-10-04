@@ -206,9 +206,9 @@ $(document).ready(function(){
 			
 			d3.select(document.getElementById("legendBasket")).append("div").style("display", "block").attr("id", "labels");
 			var labelDiv = d3.select(document.getElementById("labels"));
-			labelDiv.append("div").text("[%]").style("display", "inline-block").style("width", "100px").style("height", "7px").style("text-align", "right").style("margin-right", "1em").style("font-size", "small");
+			labelDiv.append("div").text("Odsetek widzów [%]").style("display", "inline-block").style("width", "100px").style("height", "7px").style("text-align", "right").style("margin-right", "1em").style("font-size", "small");
 			labelDiv.append("div").style("width", "30px").style("height", "10px").style("display", "inline-block");
-			labelDiv.append("div").text("[%]").style("display", "inline-block").style("width", "100px").style("height", "7px").style("text-align", "right").style("margin-right", "1em").style("font-size", "small");
+			labelDiv.append("div").text("Liczba widzów").style("display", "inline-block").style("width", "100px").style("height", "7px").style("text-align", "right").style("margin-right", "1em").style("font-size", "small");
 		
 			var commaFormat = d3.format(".2f");
 
