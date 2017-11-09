@@ -5,7 +5,7 @@ Master thesis in progress, web-page about Gastner-Newman density-equalizing maps
 ## Link:
 
 ```
-https://jlampar.github.io/mgr/
+jlampar.github.io/mgr
 ```
 
 Due to large amount of data to transfer, maps are loaded with some delay.
